@@ -7,49 +7,56 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class ViewController: UICollectionViewController {
     
-    
-    let reuseIdentifier = "pokedexcell" // also enter this string as the cell identifier in the storyboard
-    var items = ["1", "2", "3"]
-    
+    let reuseIdentifier = "pokedexcell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.request()
     }
     
+    func request() {
+        var uri = Constants.baseUri + Constants.pokemonUri
+        uri = uri + "1"
+        print(uri)
+        Alamofire.request(uri).responseJSON { response in
+//            print(response.request)  // original URL request
+//            print(response.response) // HTTP URL response
+//            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
+    }
     // MARK: - UICollectionViewDataSource protocol
     
-    // tell the collection view how many cells to make
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 151
     }
     
-    // make a cell for each cell index path
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! PokemonCollectionCell
         
-//        // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.image.image = UIImage.init(named: items[indexPath.item])
-//        cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+        let formatter = NumberFormatter()
+        formatter.minimumIntegerDigits = 3
+        let pokeid = indexPath.item + 1
+        
+        cell.image.image = UIImage.init(named:String(pokeid))
+        cell.pokeID.text = formatter.string(from:NSNumber(value:pokeid))
+        cell.pokeName.text = "Bulbasaur"
         
         return cell
     }
     
     // MARK: - UICollectionViewDelegate protocol
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-        print("You selected cell #\(indexPath.item)!")
-    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {    }
 }
 
