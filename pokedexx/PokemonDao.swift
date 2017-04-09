@@ -15,11 +15,15 @@ class PokemonDao : NSObject {
     public static let shared = PokemonDao()
     
     private override init() {
-        pokedexCache = PokemonDao.findAll()!
+        pokedexCache = PokemonDao.getAll()!
+    }
+    
+    func refreshCache() {
+        pokedexCache = PokemonDao.getAll()!
     }
     
     func addPokemon(poke_ID:Int32, poke_name:String, poke_typeA:String = "None", poke_typeB:String = "None") {
-        if let p = findOne(byId: poke_ID) {
+        if let p = getPokemon(byId: poke_ID) {
             p.poke_name = poke_name
             p.poke_typeA = poke_typeA
             p.poke_typeB = poke_typeB
@@ -33,24 +37,24 @@ class PokemonDao : NSObject {
         }
     }
     
-    class func findAll() -> [Pokemon]? {
+    class func getAll() -> [Pokemon]? {
         if let context = DataManager.shared.objectContext {
             let request: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
             if let pokemons = try? context.fetch(request) {
-                for p in pokemons {
-                    print(p.poke_name!)
-                }
+//                for p in pokemons {
+////                    print(p.poke_name!)
+//                }
                 return pokemons
             }
         }
         return nil
     }
     
-    func findOne(byId: Int32) -> Pokemon? {
+    func getPokemon(byId: Int32) -> Pokemon? {
         
         if let context = DataManager.shared.objectContext {
             let request: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
-            request.predicate = NSPredicate(format: "poke_Id==%d", byId)
+            request.predicate = NSPredicate(format: "poke_id==%d", byId)
             if let pokemons = try? context.fetch(request) {
                 return pokemons.first
             }

@@ -22,7 +22,7 @@ class DataManager: NSObject {
                 let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
                 
                 if let dbURL = FileManager.documentURL(childPath: "pokedex.db") {
-                    print(dbURL)
+//                    print(dbURL)
                     
                     // '_' is a keyword meaning that i don't care about the value
                     _ = try? persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: nil)

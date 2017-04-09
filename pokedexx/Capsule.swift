@@ -30,10 +30,11 @@ import UIKit
         // use bounds not frame or it'll be offset
         view.frame = bounds
         view.layer.cornerRadius = 10
-        view.backgroundColor = UIColor.red
+        view.backgroundColor = UIColor.lightGray
 
         // Make the view stretch with containing view
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         addSubview(view)
     }

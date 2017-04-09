@@ -14,7 +14,7 @@
         <scene sceneID="fRj-Ay-daj">
             <objects>
                 <tableViewController id="L7Q-Kd-zqX" customClass="PokedexTableViewController" customModule="pokedexx" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="9aW-1o-td2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="9aW-1o-td2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -23,42 +23,60 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qma-qU-46a" id="C4y-IS-o01">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bulbasaur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ah-kg-gqC">
-                                            <rect key="frame" x="148" y="17" width="219" height="21"/>
+                                            <rect key="frame" x="124" y="17" width="113" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="xc0-Cb-bul"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="zxb-ZH-Dud"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="zxb-ZH-Dud"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="mWJ-Zp-yHo">
-                                            <rect key="frame" x="83" y="0.0" width="55" height="55"/>
+                                            <rect key="frame" x="66" y="0.0" width="55" height="55"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="55" id="B2S-WR-gbC"/>
                                                 <constraint firstAttribute="width" constant="55" id="azl-PY-0tJ"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhD-tb-2bd" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="17" width="55" height="21"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhD-tb-2bd" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
+                                            <rect key="frame" x="18" y="17" width="45" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="55" id="G0W-7g-9eZ"/>
+                                                <constraint firstAttribute="width" constant="45" id="G0W-7g-9eZ"/>
                                                 <constraint firstAttribute="height" constant="21" id="nLK-SZ-Pad"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEi-1N-jFM" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
+                                            <rect key="frame" x="251" y="17" width="55" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="55" id="38E-ww-Ty4"/>
+                                                <constraint firstAttribute="height" constant="21" id="iiI-L6-AmD"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qyF-hM-Xuv" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
+                                            <rect key="frame" x="307" y="17" width="55" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="55" id="1Ct-Zq-YSH"/>
+                                                <constraint firstAttribute="height" constant="21" id="dTh-db-z7w"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="1ah-kg-gqC" secondAttribute="trailing" id="1tP-2O-B4d"/>
+                                        <constraint firstItem="qyF-hM-Xuv" firstAttribute="leading" secondItem="dEi-1N-jFM" secondAttribute="trailing" constant="5" id="6m7-su-Wxv"/>
                                         <constraint firstItem="mWJ-Zp-yHo" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="6rA-XR-2b4"/>
-                                        <constraint firstItem="1ah-kg-gqC" firstAttribute="leading" secondItem="mWJ-Zp-yHo" secondAttribute="trailing" constant="10" id="E5T-NJ-kl7"/>
+                                        <constraint firstItem="qyF-hM-Xuv" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="Dvw-i0-tl5"/>
+                                        <constraint firstItem="1ah-kg-gqC" firstAttribute="leading" secondItem="mWJ-Zp-yHo" secondAttribute="trailing" constant="3" id="E5T-NJ-kl7"/>
                                         <constraint firstItem="1ah-kg-gqC" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="He0-ah-fi4"/>
-                                        <constraint firstItem="mWJ-Zp-yHo" firstAttribute="leading" secondItem="bhD-tb-2bd" secondAttribute="trailing" constant="10" id="Kj8-X6-Xwx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="qyF-hM-Xuv" secondAttribute="trailing" constant="10" id="K09-Ci-DPk"/>
+                                        <constraint firstItem="mWJ-Zp-yHo" firstAttribute="leading" secondItem="bhD-tb-2bd" secondAttribute="trailing" constant="3" id="Kj8-X6-Xwx"/>
                                         <constraint firstItem="bhD-tb-2bd" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="MhZ-eY-pVv"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="bhD-tb-2bd" secondAttribute="leading" constant="-10" id="SYZ-xu-ZBH"/>
+                                        <constraint firstItem="dEi-1N-jFM" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="Xjz-Kz-X9s"/>
+                                        <constraint firstItem="dEi-1N-jFM" firstAttribute="leading" secondItem="1ah-kg-gqC" secondAttribute="trailing" constant="5" id="oaR-Vd-2aw"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -66,6 +84,8 @@
                                     <outlet property="pokeIDView" destination="bhD-tb-2bd" id="3dQ-pa-Ng8"/>
                                     <outlet property="pokeImage" destination="mWJ-Zp-yHo" id="ymC-qu-9fC"/>
                                     <outlet property="pokeName" destination="1ah-kg-gqC" id="JfJ-L0-fOs"/>
+                                    <outlet property="pokeTypeA" destination="dEi-1N-jFM" id="rUR-gh-RL2"/>
+                                    <outlet property="pokeTypeB" destination="qyF-hM-Xuv" id="ox9-qG-bfL"/>
                                     <segue destination="SVV-h9-1gD" kind="showDetail" id="5cQ-bN-1GI"/>
                                 </connections>
                             </tableViewCell>

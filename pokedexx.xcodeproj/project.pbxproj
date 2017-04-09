@@ -12,8 +12,10 @@
 		3D2C64CA1E99E1110077181C /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C64C91E99E1110077181C /* Capsule.swift */; };
 		3D2C64CC1E99E12D0077181C /* Capsule.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2C64CB1E99E12D0077181C /* Capsule.xib */; };
 		3D2C64D11E9A07570077181C /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C64D01E9A07570077181C /* UIColor+Hex.swift */; };
+		3D3CC6B91E9A2BB8000A1AE1 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3CC6B81E9A2BB8000A1AE1 /* Parser.swift */; };
+		3D3CC6BB1E9A2DF1000A1AE1 /* ServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3CC6BA1E9A2DF1000A1AE1 /* ServerController.swift */; };
 		3D60CB3F1E9A1B8D009C565A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60CB3E1E9A1B8D009C565A /* DataManager.swift */; };
-		3D60CB411E9A1C0C009C565A /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60CB401E9A1C0C009C565A /* FileManager.swift */; };
+		3D60CB411E9A1C0C009C565A /* FileManager+Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60CB401E9A1C0C009C565A /* FileManager+Document.swift */; };
 		3D95DF7E1E90E51D008B72EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D95DF7D1E90E51D008B72EC /* AppDelegate.swift */; };
 		3D95DF831E90E51D008B72EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D95DF811E90E51D008B72EC /* Main.storyboard */; };
 		3D95DF861E90E51D008B72EC /* pokedexx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D95DF841E90E51D008B72EC /* pokedexx.xcdatamodeld */; };
@@ -33,8 +35,10 @@
 		3D2C64C91E99E1110077181C /* Capsule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capsule.swift; sourceTree = "<group>"; };
 		3D2C64CB1E99E12D0077181C /* Capsule.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Capsule.xib; sourceTree = "<group>"; };
 		3D2C64D01E9A07570077181C /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		3D3CC6B81E9A2BB8000A1AE1 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		3D3CC6BA1E9A2DF1000A1AE1 /* ServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerController.swift; sourceTree = "<group>"; };
 		3D60CB3E1E9A1B8D009C565A /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		3D60CB401E9A1C0C009C565A /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		3D60CB401E9A1C0C009C565A /* FileManager+Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Document.swift"; sourceTree = "<group>"; };
 		3D95DF7A1E90E51D008B72EC /* pokedexx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokedexx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D95DF7D1E90E51D008B72EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D95DF821E90E51D008B72EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,7 +113,7 @@
 			children = (
 				3D60CB3E1E9A1B8D009C565A /* DataManager.swift */,
 				3D2C64D01E9A07570077181C /* UIColor+Hex.swift */,
-				3D60CB401E9A1C0C009C565A /* FileManager.swift */,
+				3D60CB401E9A1C0C009C565A /* FileManager+Document.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -118,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				3D95DF961E90E708008B72EC /* Constants.swift */,
+				3D3CC6B81E9A2BB8000A1AE1 /* Parser.swift */,
+				3D3CC6BA1E9A2DF1000A1AE1 /* ServerController.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -306,10 +312,12 @@
 				3D60CB3F1E9A1B8D009C565A /* DataManager.swift in Sources */,
 				3D95DF971E90E708008B72EC /* Constants.swift in Sources */,
 				3DF326C11E98E1DC0020836F /* PokemonDetailViewController.swift in Sources */,
+				3D3CC6BB1E9A2DF1000A1AE1 /* ServerController.swift in Sources */,
 				3D2C64D11E9A07570077181C /* UIColor+Hex.swift in Sources */,
 				3D95DF7E1E90E51D008B72EC /* AppDelegate.swift in Sources */,
 				3D95DF861E90E51D008B72EC /* pokedexx.xcdatamodeld in Sources */,
-				3D60CB411E9A1C0C009C565A /* FileManager.swift in Sources */,
+				3D60CB411E9A1C0C009C565A /* FileManager+Document.swift in Sources */,
+				3D3CC6B91E9A2BB8000A1AE1 /* Parser.swift in Sources */,
 				3D2C64CA1E99E1110077181C /* Capsule.swift in Sources */,
 				3D95DF9A1E90EB0D008B72EC /* PokemonDao.swift in Sources */,
 				3D0E67121E97E8F200C9F07E /* PokedexTableViewController.swift in Sources */,

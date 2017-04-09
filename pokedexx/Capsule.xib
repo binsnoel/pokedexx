@@ -23,7 +23,7 @@
                     <rect key="frame" x="8" y="0.0" width="64" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="ElG-gB-AsV"/>
-                        <constraint firstAttribute="width" constant="64" id="Sen-Fn-Ubz"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="64" id="alH-Rp-bpA"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
@@ -37,7 +37,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-84" y="-186"/>
+            <point key="canvasLocation" x="-84" y="-186.5"/>
         </view>
     </objects>
 </document>
