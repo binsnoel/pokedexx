@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import NVActivityIndicatorView
 
 extension PokedexTableViewController: UISearchResultsUpdating {
     @available(iOS 8.0, *)
@@ -21,18 +22,30 @@ extension PokedexTableViewController: UISearchResultsUpdating {
     }
 }
 
-
 class PokedexTableViewController: UITableViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     var jsonPokedex = [[String : AnyObject]]()
     var arrayPokedex = [Int32 : String]()
     var filteredPokedex = [Int32: String]()
+    var loading : NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeActivityIndicator()
         fetchPokedex()
-        
+        initializeSearchBar()
+    }
+    
+    func initializeActivityIndicator() {
+        self.loading = NVActivityIndicatorView(frame:CGRect(x:0, y:0, width: 100, height: 100))
+        self.loading.type = .ballClipRotatePulse
+        self.loading.startAnimating()
+        print(self.loading.isAnimating)
+    }
+    
+    func initializeSearchBar() {
+        searchController.searchBar.placeholder = "Search for Pokemon"
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
@@ -48,18 +61,20 @@ class PokedexTableViewController: UITableViewController {
 //    }
     
     func fetchPokedex() {
+        
+//        var activityIndicator = GTMActivityIndicatorView(frame: CGRect(X: 0, y: 0, width: 100, height:100))
+//        activityIndicator.startAnimating()
+        
         let uri = Constants.baseUri + Constants.pokedexUri + "2/"
         print(uri)
         Alamofire.request(uri).validate().responseJSON { response in
             switch response.result {
             case .success:
                 print("Fetching data with success from \(uri)")
-                //                if let JSON = response.result.value {
-                //                        print("JSON: \(JSON)")
-                //                }
                 if((response.result.value) != nil) {
                     self.parseJSONPokedex(json: JSON(response.result.value!))
                     self.tableView.reloadData()
+                    self.loading.stopAnimating()
                 }
             case .failure(let error):
                 print("Could't fetch data from \(uri)")
@@ -107,7 +122,7 @@ class PokedexTableViewController: UITableViewController {
         
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 3
-        cell.pokeID.text = "#" + formatter.string(from: (indexPath.row + 1) as NSNumber)!
+//        cell.pokeID.text = "#" + formatter.string(from: (indexPath.row + 1) as NSNumber)!
         
         if let pkmnImage:UIImage = UIImage(named: "\(indexPath.row + 1).png") {
             cell.pokeImage.image = pkmnImage

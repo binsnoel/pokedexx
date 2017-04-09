@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>GTMActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>NVActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods-pokedexx.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -22,6 +32,26 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2D2A9016A0064B937AB1CD7CB03F0106</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3EDFE4052B5DE7D509935AC0774CB135</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>47FB775D00C34452CE0C71AE00CBF1B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>60908C982BFF1F3A04122F717FBCFEB2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>628C164448C53DC69502CBAFB8819264</key>
 		<dict>
 			<key>primary</key>
@@ -38,6 +68,16 @@
 			<true/>
 		</dict>
 		<key>D96289D3DC93D8327EC04F66B747F1AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DED2AA6DDEFFCB2C2DA7846B6924AE5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F74623379206A9A4D490DD33C8D28C2E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
