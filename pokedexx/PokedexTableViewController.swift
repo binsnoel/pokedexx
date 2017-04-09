@@ -122,7 +122,7 @@ class PokedexTableViewController: UITableViewController {
         
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 3
-//        cell.pokeID.text = "#" + formatter.string(from: (indexPath.row + 1) as NSNumber)!
+        cell.pokeID.capsuleLabel.text = "#" + formatter.string(from: (indexPath.row + 1) as NSNumber)!
         
         if let pkmnImage:UIImage = UIImage(named: "\(indexPath.row + 1).png") {
             cell.pokeImage.image = pkmnImage

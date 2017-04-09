@@ -11,13 +11,13 @@ import UIKit
 class PokedexTableViewCell: UITableViewCell {
     
     @IBOutlet weak var pokeImage: UIImageView!
-    @IBOutlet weak var pokeID: UILabel!
     @IBOutlet weak var pokeName: UILabel!
     @IBOutlet weak var pokeIDView: UIView!
+    @IBOutlet weak var pokeID: Capsule!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        pokeIDView.layer.cornerRadius = 10
+        pokeID.view.backgroundColor = UIColor.pkPokeIDColor
         // Initialization code
     }
 
