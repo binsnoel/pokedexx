@@ -93,8 +93,8 @@ class PokedexTableViewController: UITableViewController {
                     
                     if let pokeID = pokemon["entry_number"] as? Int32 {
                         if let pokeName = pokemon["pokemon_species"]?["name"] as? String {
-                            //                            PokemonDao.shared.upsertOne(entryNumber: pokeID, name: pokeName.capitalized)
-                            arrayPokedex[pokeID] = pokeName
+                            PokemonDao.shared.upsertOne(entryNumber: pokeID, name: pokeName.capitalized)
+//                            arrayPokedex[pokeID] = pokeName
                         }
                     }
                 }
