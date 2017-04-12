@@ -79,6 +79,7 @@ class PokedexTableViewController: UITableViewController, NVActivityIndicatorView
     
     func parseJSONPokedex(json : JSON) {
         var jsonPokedex = [[String : AnyObject]]()
+        print(json)
         if let resData = json["pokemon_entries"].arrayObject {
             jsonPokedex = resData as! [[String:AnyObject]]
             if jsonPokedex.count > 0 {
@@ -120,6 +121,8 @@ class PokedexTableViewController: UITableViewController, NVActivityIndicatorView
         }
         
         cell.pokeName.text = PokemonDao.shared.pokedexCache[indexPath.row].poke_name!
+//        cell.typeA = Enums.PokemonType.Grass
+//        cell.typeB = Enums.PokemonType.unkown
         
         return cell
     }

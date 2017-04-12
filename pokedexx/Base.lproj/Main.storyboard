@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2YW-Go-ksp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2YW-Go-ksp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,20 +14,20 @@
         <scene sceneID="fRj-Ay-daj">
             <objects>
                 <tableViewController id="L7Q-Kd-zqX" customClass="PokedexTableViewController" customModule="pokedexx" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" id="9aW-1o-td2">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="9aW-1o-td2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pokemoncell" rowHeight="55" id="qma-qU-46a" customClass="PokedexTableViewCell" customModule="pokedexx" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="55"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="pokemoncell" rowHeight="90" id="qma-qU-46a" customClass="PokedexTableViewCell" customModule="pokedexx" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qma-qU-46a" id="C4y-IS-o01">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bulbasaur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ah-kg-gqC">
-                                            <rect key="frame" x="124" y="17" width="113" height="21"/>
+                                            <rect key="frame" x="154" y="19.5" width="68" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="xc0-Cb-bul"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="zxb-ZH-Dud"/>
@@ -36,50 +36,60 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="mWJ-Zp-yHo">
-                                            <rect key="frame" x="66" y="0.0" width="55" height="55"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhD-tb-2bd" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
+                                            <rect key="frame" x="99" y="19.5" width="45" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="55" id="B2S-WR-gbC"/>
-                                                <constraint firstAttribute="width" constant="55" id="azl-PY-0tJ"/>
+                                                <constraint firstAttribute="width" constant="45" id="29y-9i-Bgw"/>
+                                                <constraint firstAttribute="height" constant="21" id="mhQ-Su-fpn"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEi-1N-jFM" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
+                                            <rect key="frame" x="99" y="49.5" width="65" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="65" id="7SK-Qz-nQT"/>
+                                                <constraint firstAttribute="height" constant="21" id="IKx-ST-92g"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qyF-hM-Xuv" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
+                                            <rect key="frame" x="174" y="49.5" width="65" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="V1l-Rt-ZCp"/>
+                                                <constraint firstAttribute="width" constant="65" id="okE-xC-7df"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sga-3j-0oo">
+                                            <rect key="frame" x="0.0" y="10" width="35" height="70"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="VNn-Ha-jVM"/>
+                                                <constraint firstAttribute="width" constant="45" id="nTI-dG-2gQ"/>
+                                            </constraints>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="mWJ-Zp-yHo">
+                                            <rect key="frame" x="9" y="10" width="70" height="70"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="B2S-WR-gbC"/>
+                                                <constraint firstAttribute="width" constant="70" id="azl-PY-0tJ"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhD-tb-2bd" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
-                                            <rect key="frame" x="18" y="17" width="45" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="45" id="G0W-7g-9eZ"/>
-                                                <constraint firstAttribute="height" constant="21" id="nLK-SZ-Pad"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEi-1N-jFM" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
-                                            <rect key="frame" x="251" y="17" width="55" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="55" id="38E-ww-Ty4"/>
-                                                <constraint firstAttribute="height" constant="21" id="iiI-L6-AmD"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qyF-hM-Xuv" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
-                                            <rect key="frame" x="307" y="17" width="55" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="55" id="1Ct-Zq-YSH"/>
-                                                <constraint firstAttribute="height" constant="21" id="dTh-db-z7w"/>
-                                            </constraints>
-                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="qyF-hM-Xuv" firstAttribute="leading" secondItem="dEi-1N-jFM" secondAttribute="trailing" constant="5" id="6m7-su-Wxv"/>
+                                        <constraint firstItem="qyF-hM-Xuv" firstAttribute="leading" secondItem="dEi-1N-jFM" secondAttribute="trailing" constant="10" id="1US-ag-oWG"/>
                                         <constraint firstItem="mWJ-Zp-yHo" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="6rA-XR-2b4"/>
-                                        <constraint firstItem="qyF-hM-Xuv" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="Dvw-i0-tl5"/>
-                                        <constraint firstItem="1ah-kg-gqC" firstAttribute="leading" secondItem="mWJ-Zp-yHo" secondAttribute="trailing" constant="3" id="E5T-NJ-kl7"/>
-                                        <constraint firstItem="1ah-kg-gqC" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="He0-ah-fi4"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="qyF-hM-Xuv" secondAttribute="trailing" constant="10" id="K09-Ci-DPk"/>
-                                        <constraint firstItem="mWJ-Zp-yHo" firstAttribute="leading" secondItem="bhD-tb-2bd" secondAttribute="trailing" constant="3" id="Kj8-X6-Xwx"/>
-                                        <constraint firstItem="bhD-tb-2bd" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="MhZ-eY-pVv"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="bhD-tb-2bd" secondAttribute="leading" constant="-10" id="SYZ-xu-ZBH"/>
-                                        <constraint firstItem="dEi-1N-jFM" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="Xjz-Kz-X9s"/>
-                                        <constraint firstItem="dEi-1N-jFM" firstAttribute="leading" secondItem="1ah-kg-gqC" secondAttribute="trailing" constant="5" id="oaR-Vd-2aw"/>
+                                        <constraint firstItem="1ah-kg-gqC" firstAttribute="leading" secondItem="bhD-tb-2bd" secondAttribute="trailing" constant="10" id="Ke8-J9-BM0"/>
+                                        <constraint firstItem="bhD-tb-2bd" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" constant="-15" id="Phv-Rm-b6L"/>
+                                        <constraint firstItem="qyF-hM-Xuv" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" constant="15" id="RKO-kS-4NF"/>
+                                        <constraint firstItem="dEi-1N-jFM" firstAttribute="leading" secondItem="mWJ-Zp-yHo" secondAttribute="trailing" constant="20" id="RYc-Fq-gnJ"/>
+                                        <constraint firstItem="1ah-kg-gqC" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" constant="-15" id="Uwr-7u-f3G"/>
+                                        <constraint firstItem="Sga-3j-0oo" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" id="cbS-F6-BJk"/>
+                                        <constraint firstItem="bhD-tb-2bd" firstAttribute="leading" secondItem="mWJ-Zp-yHo" secondAttribute="trailing" constant="20" id="dmP-Mu-t3v"/>
+                                        <constraint firstItem="mWJ-Zp-yHo" firstAttribute="leading" secondItem="C4y-IS-o01" secondAttribute="leadingMargin" constant="1" id="lIx-8D-Vep"/>
+                                        <constraint firstItem="dEi-1N-jFM" firstAttribute="centerY" secondItem="C4y-IS-o01" secondAttribute="centerY" constant="15" id="lhk-Xa-Jh9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="imagBgView" destination="Sga-3j-0oo" id="Jek-6j-ooR"/>
                                     <outlet property="pokeID" destination="bhD-tb-2bd" id="Qn7-BX-CQi"/>
                                     <outlet property="pokeIDView" destination="bhD-tb-2bd" id="3dQ-pa-Ng8"/>
                                     <outlet property="pokeImage" destination="mWJ-Zp-yHo" id="ymC-qu-9fC"/>
