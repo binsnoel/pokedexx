@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2YW-Go-ksp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wJc-Hr-0DF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -153,6 +153,37 @@
             </objects>
             <point key="canvasLocation" x="3221.5999999999999" y="45.42728635682159"/>
         </scene>
+        <!--Loading Screen-->
+        <scene sceneID="V2V-tY-bVf">
+            <objects>
+                <viewController id="wJc-Hr-0DF" customClass="LoadingScreen" customModule="pokedexx" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fVf-fv-g5q"/>
+                        <viewControllerLayoutGuide type="bottom" id="3cg-Ot-xrw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RFr-Jd-ZHy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball_loading" translatesAutoresizingMaskIntoConstraints="NO" id="HqC-jg-v2q">
+                                <rect key="frame" x="119" y="200" width="136" height="167"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="136" id="DSH-jK-Jz2"/>
+                                    <constraint firstAttribute="height" constant="167" id="xP6-7G-314"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HqC-jg-v2q" firstAttribute="centerX" secondItem="RFr-Jd-ZHy" secondAttribute="centerX" id="GQa-vJ-gk6"/>
+                            <constraint firstItem="HqC-jg-v2q" firstAttribute="centerY" secondItem="RFr-Jd-ZHy" secondAttribute="centerY" constant="-50" id="NMT-PB-dqt"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXq-BE-DEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="757.60000000000002" y="44.527736131934034"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="QnJ-rS-rdF">
             <objects>
@@ -179,5 +210,6 @@
     <resources>
         <image name="1" width="96" height="96"/>
         <image name="pokeball" width="206" height="206"/>
+        <image name="pokeball_loading" width="294" height="360"/>
     </resources>
 </document>

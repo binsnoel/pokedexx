@@ -22,15 +22,18 @@ class PokemonDao : NSObject {
         pokedexCache = PokemonDao.getAll()!
     }
     
-    func addPokemon(poke_ID:Int32, poke_name:String, poke_typeA:String = "None", poke_typeB:String = "None") {
-        if let p = getPokemon(byId: poke_ID) {
+    func addPokemon(poke_ID:Int32, poke_order:Int32, poke_name:String, poke_typeA:String = "None", poke_typeB:String = "None") {
+        if let p = getPokemon(byId: poke_order) {
+            p.poke_id = poke_ID
             p.poke_name = poke_name
             p.poke_typeA = poke_typeA
             p.poke_typeB = poke_typeB
+            print("\(poke_name) existing")
         } else {
             if let context = DataManager.shared.objectContext {
                 let p = Pokemon(context: context)
                 p.poke_id = poke_ID
+                p.poke_order = poke_order
                 p.poke_name = poke_name
                 p.poke_typeA = poke_typeA
                 p.poke_typeB = poke_typeB

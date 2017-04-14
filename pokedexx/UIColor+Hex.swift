@@ -34,6 +34,7 @@ extension UIColor {
     
     
     static let pkPokeIDColor = UIColor(netHex: 0xececec)
+    static let pkPokeRed     = UIColor(netHex: 0xf60a4f)
     
     
     convenience init(red: Int, green: Int, blue: Int) {

@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,6 +38,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>2D2A9016A0064B937AB1CD7CB03F0106</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>31A1252099B09B07FA9D642F734FC4EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,6 +72,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>987086CD56B8539E8DF66DCDCFAA5CAE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BCCCBDC3FF28774C820A78FF432E589B</key>
 		<dict>
 			<key>primary</key>
@@ -73,6 +88,11 @@
 			<true/>
 		</dict>
 		<key>DED2AA6DDEFFCB2C2DA7846B6924AE5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F6926E1910A80796A5E4EFDAB486043A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
