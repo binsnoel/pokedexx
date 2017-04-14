@@ -9,7 +9,9 @@
 import Foundation
 
 class Constants {
-    static let baseUri:String = String("http://pokeapi.co/api/v2")
-    static let pokedexUri:String = String("/pokedex/")
+    static let baseUri:String = String("http://pokeapi.co/api/v2/")
+    static let pokedexUri:String = String("pokedex/")
+    static let pokemonUri:String = String("pokemon/")
+    static let typeUri:String = String("type/")
     
 }

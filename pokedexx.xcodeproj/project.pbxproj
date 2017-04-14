@@ -224,6 +224,7 @@
 				TargetAttributes = {
 					3D95DF791E90E51D008B72EC = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 52JSFZ9F97;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -455,7 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 52JSFZ9F97;
 				INFOPLIST_FILE = pokedexx/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -473,7 +474,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 52JSFZ9F97;
 				INFOPLIST_FILE = pokedexx/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

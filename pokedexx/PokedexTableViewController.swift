@@ -30,10 +30,81 @@ class PokedexTableViewController: UITableViewController, NVActivityIndicatorView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchPokedex()
+//        fetchPokedex()
+        
+//        ServerController.shared.getPokemonData()
+        
+        getPokemonData()
         initializeSearchBar()
     }
     
+    func getPokemonData(){
+        
+        let size = CGSize(width: 30, height: 30)
+        startAnimating(size, message: "Loading Pokédex...", type: .ballTrianglePath)
+        for id in 1...15 {
+            let uri = Constants.baseUri + Constants.pokemonUri + String(id)
+            
+            Alamofire.request(uri).validate().responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("Fetching data with success from \(uri)")
+                    if((response.result.value) != nil) {
+                        Parser().parsePokemonData(json: JSON(response.result.value!))
+                        //                            PokemonDao.shared.refreshCache()
+                        //                            self.tableView.reloadData()
+                        //                            DispatchQueue.main.async {
+                        //                                self.stopAnimating()
+                        //                            }
+                        self.tableView.reloadData()
+                        
+                    }
+                case .failure(let error):
+                    print("Couldn't fetch data from \(uri)")
+                    print(error)
+                }
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.stopAnimating()
+        }
+        //        }
+    }
+    
+    func parsePokemonData(json: JSON) {
+        var typeA = ""
+        var typeB = ""
+        
+        if let name = json["name"].string {
+            //print(name)
+            if let id = json["id"].number {
+                //print(id)
+                if let type1 = json["types"][1]["type"]["name"].string{
+                    typeA = type1
+                }
+                if let type2 = json["types"][0]["type"]["name"].string{
+                    if typeA != "" {
+                        typeB = type2
+                    }
+                    else {
+                        typeA = type2
+                    }
+                }
+                //print(typeA)
+                //print(typeB)
+                PokemonDao.shared.addPokemon(poke_ID: Int32(id),
+                                             poke_name: name.capitalized,
+                                             poke_typeA: typeA.capitalized,
+                                             poke_typeB: typeB.capitalized)
+                
+                PokemonDao.shared.refreshCache()
+            }
+        }
+        
+        
+    }
+
     func initializeSearchBar() {
         searchController.searchBar.placeholder = "Search for Pokémon"
         searchController.searchResultsUpdater = self
@@ -50,51 +121,6 @@ class PokedexTableViewController: UITableViewController, NVActivityIndicatorView
 //        tableView.reloadData()
 //    }
     
-    func fetchPokedex() {
-        if PokemonDao.shared.pokedexCache.count < 151 {
-            let uri = Constants.baseUri + Constants.pokedexUri + "2/"
-            
-            let size = CGSize(width: 30, height: 30)
-            startAnimating(size, message: "Loading Pokédex...", type: .ballTrianglePath)
-            
-            Alamofire.request(uri).validate().responseJSON { response in
-                switch response.result {
-                case .success:
-                    print("Fetching data with success from \(uri)")
-                    if((response.result.value) != nil) {
-                        self.parseJSONPokedex(json: JSON(response.result.value!))
-                        PokemonDao.shared.refreshCache()
-                        self.tableView.reloadData()
-                        DispatchQueue.main.async {
-                            self.stopAnimating()
-                        }
-                    }
-                case .failure(let error):
-                    print("Couldn't fetch data from \(uri)")
-                    print(error)
-                }
-            }
-        }
-    }
-    
-    func parseJSONPokedex(json : JSON) {
-        var jsonPokedex = [[String : AnyObject]]()
-        print(json)
-        if let resData = json["pokemon_entries"].arrayObject {
-            jsonPokedex = resData as! [[String:AnyObject]]
-            if jsonPokedex.count > 0 {
-                for pokemon in jsonPokedex {
-                    
-                    if let pokeID = pokemon["entry_number"] as? Int32 {
-                        if let pokeName = pokemon["pokemon_species"]?["name"] as? String {
-                            print(pokeName + " Added to DB")
-                            PokemonDao.shared.addPokemon(poke_ID: pokeID, poke_name: pokeName.capitalized)
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     // MARK: - Table view data source
 
@@ -112,7 +138,7 @@ class PokedexTableViewController: UITableViewController, NVActivityIndicatorView
         
         let formatter = NumberFormatter()
         formatter.minimumIntegerDigits = 3
-        cell.pokeID.capsuleLabel.text = "#" + formatter.string(from: (indexPath.row + 1) as NSNumber)!
+        cell.pokeID.capsuleLabel.text = "#" + formatter.string(from: PokemonDao.shared.pokedexCache[indexPath.row].poke_id as NSNumber)!
         
         if let pkmnImage:UIImage = UIImage(named: "\(indexPath.row + 1).png") {
             cell.pokeImage.image = pkmnImage
@@ -121,10 +147,15 @@ class PokedexTableViewController: UITableViewController, NVActivityIndicatorView
         }
         
         cell.pokeName.text = PokemonDao.shared.pokedexCache[indexPath.row].poke_name!
-//        cell.typeA = Enums.PokemonType.Grass
-//        cell.typeB = Enums.PokemonType.unkown
-        
+        if let a = PokemonDao.shared.pokedexCache[indexPath.row].poke_typeA as String! {
+            cell.setTypeACapsule(Enums.PokemonType(rawValue: a)!)
+        }
+        if let b = PokemonDao.shared.pokedexCache[indexPath.row].poke_typeB as String! {
+            cell.setTypeBCapsule(Enums.PokemonType(rawValue: b)!)
+        }
+        cell.checkTypes()
         return cell
     }
+    
     
 }

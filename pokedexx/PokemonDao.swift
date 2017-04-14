@@ -32,7 +32,10 @@ class PokemonDao : NSObject {
                 let p = Pokemon(context: context)
                 p.poke_id = poke_ID
                 p.poke_name = poke_name
+                p.poke_typeA = poke_typeA
+                p.poke_typeB = poke_typeB
                 try? context.save()
+                print("Added \(poke_name)")
             }
         }
     }
