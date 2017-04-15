@@ -27,6 +27,8 @@ class Common {
                 return UIColor.pkBugColor
             case .Ghost:
                 return UIColor.pkGhostColor
+            case .Rock:
+                return UIColor.pkRockColor
             case .Steel:
                 return UIColor.pkSteelColor
             case .Fire:

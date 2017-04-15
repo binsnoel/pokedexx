@@ -15,6 +15,7 @@ class Enums{
         case Flying
         case Poison
         case Ground
+        case Rock
         case Bug
         case Ghost
         case Steel

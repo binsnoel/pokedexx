@@ -14,12 +14,36 @@ import SCLAlertView
 
 class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
     
-    var texts : [String] = ["Applying Repel", "Waking Snorlax", "Seeking Seaking", "Charging Pikachu" ,"Loading Pokédex"]
+    var texts = ["Applying Repel", "Waking Snorlax", "Seeking Seaking", "Charging Pikachu", "Hatching Eggs" ,"Loading Pokédex"]
+    var timer : Timer?
+    let initialNumberofPokemons = 30
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ServerController.shared.getPokemonData()
+        router()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true;
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false;
+        ServerController.shared.delegate = nil
+    }
+    
+    func router(){
+        if PokemonDao.shared.pokedexCache.count >= initialNumberofPokemons {
+            displayPokedexView(animated:false)
+        }
+        else {
+            queryPokemon()
+        }
+    }
+    
+    func queryPokemon(){
+        ServerController.shared.delegate = self
+        ServerController.shared.getPokemonDataById(from:1, to:Int32(initialNumberofPokemons))
         
         NVActivityIndicatorView.DEFAULT_COLOR = UIColor.darkGray
         
@@ -44,41 +68,36 @@ class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
         self.view.addSubview(animationTypeLabel)
         activityIndicatorView.startAnimating()
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
-            animationTypeLabel.text = "Feeding Snorlax"
+        var counter = 0
+        self.timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {_ in
+            DispatchQueue.main.async(execute: {
+                if counter < self.texts.count {
+                    print(self.texts[counter])
+                    animationTypeLabel.text = self.texts[counter]
+                    counter += 1
+                }
+            })
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) {
-            animationTypeLabel.text = "Loading Pokédex"
-        }
-        
+        self.timer?.fire()
     }
     
-//    func getPokemonData(){
-//        
-//        for id in 1...15 {
-//            let uri = Constants.baseUri + Constants.pokemonUri + String(id)
-//            
-//            print("Sending request \(uri)")
-//            Alamofire.request(uri).validate().responseJSON { response in
-//                switch response.result {
-//                case .success:
-//                    print("Fetching data with success from \(uri)")
-//                    if((response.result.value) != nil) {
-//                        Parser().parsePokemonData(json: JSON(response.result.value!))
-//                    }
-//                case .failure(let error):
-//                    let appearance = SCLAlertView.SCLAppearance(
-//                        showCircularIcon: true
-//                    )
-//                    let alertView = SCLAlertView(appearance: appearance)
-//                    let alertViewIcon = UIImage(named: "pokeball2") //Replace the IconImage text with the image name
-//                    alertView.showInfo("Custom icon", subTitle: "error in request", circleIconImage: alertViewIcon)
-//                    print(error)
-//                }
-//            }
-//        }
-//    }
+    func displayPokedexView(animated: Bool){
+        self.timer?.invalidate()
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "PokedexView") as! PokedexTableViewController
+        self.navigationController?.pushViewController(nextViewController, animated: animated)
+    }
 
+}
+
+extension LoadingScreen: ServerControllerDelegate {
+    
+    func didFinishTask(sender: ServerController) {
+        self.displayPokedexView(animated:true)
+    }
+    
+    func didFinishSingleTask(sender: ServerController) {
+        //do nothing
+    }
 }

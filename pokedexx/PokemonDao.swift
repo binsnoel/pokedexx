@@ -23,7 +23,7 @@ class PokemonDao : NSObject {
     }
     
     func addPokemon(poke_ID:Int32, poke_order:Int32, poke_name:String, poke_typeA:String = "None", poke_typeB:String = "None") {
-        if let p = getPokemon(byId: poke_order) {
+        if let p = getPokemon(byOrder: poke_order) {
             p.poke_id = poke_ID
             p.poke_name = poke_name
             p.poke_typeA = poke_typeA
@@ -56,16 +56,16 @@ class PokemonDao : NSObject {
         return nil
     }
     
-    func getPokemon(byId: Int32) -> Pokemon? {
+    func getPokemon(byOrder: Int32) -> Pokemon? {
         
         if let context = DataManager.shared.objectContext {
             let request: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
-            request.predicate = NSPredicate(format: "poke_id==%d", byId)
+            request.predicate = NSPredicate(format: "poke_order==%d", byOrder)
             if let pokemons = try? context.fetch(request) {
                 return pokemons.first
             }
         } else {
-            return self.pokedexCache[Int(byId)]
+            return self.pokedexCache[Int(byOrder)]
         }
         return nil
     }

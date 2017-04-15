@@ -22,7 +22,7 @@ class PokedexTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         pokeID.view.backgroundColor = UIColor.pkPokeIDColor
-        pokeID.capsuleLabel.font = pokeTypeA.capsuleLabel.font.withSize(11)
+        pokeID.capsuleLabel.font = pokeID.capsuleLabel.font.withSize(11)
         pokeImage.backgroundColor = UIColor.clear
     }
     
