@@ -45,11 +45,8 @@ class PokedexTableViewController: UITableViewController, NVActivityIndicatorView
 //        let alertView = SCLAlertView(appearance: appearance)
 //        let alertViewIcon = UIImage(named: "1") //Replace the IconImage text with the image name
 //        alertView.showInfo("Custom icon", subTitle: "This is a nice alert with a custom icon you choose", circleIconImage: alertViewIcon)
-        
-        let size = CGSize(width: 30, height: 30)
-        startAnimating(size, message: "Loading Pokédex...", type: .lineScale)
-        
-//                getPokemonData()
+             
+        ServerController.shared.getPokemonData()
         initializeSearchBar()
     }
     
