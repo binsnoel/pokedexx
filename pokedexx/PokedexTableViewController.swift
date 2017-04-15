@@ -110,6 +110,13 @@ class PokedexTableViewController: UITableViewController, NVActivityIndicatorView
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "pokemonDetail") as! PokemonDetailViewController
+        
+        if searchController.isActive && searchController.searchBar.text != "" && filteredPokedex.count > 0{
+            nextViewController.pokeID = filteredPokedex[indexPath.row].poke_id
+        } else {
+            nextViewController.pokeID = PokemonDao.shared.pokedexCache[indexPath.row].poke_id
+        }
+        
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     
