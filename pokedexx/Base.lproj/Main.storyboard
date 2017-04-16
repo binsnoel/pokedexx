@@ -332,8 +332,10 @@
                         <outlet property="capsuleID" destination="Pkn-VJ-Ouo" id="Gvc-Ed-6Kh"/>
                         <outlet property="capsuleSpecies" destination="ahs-wN-rm8" id="HLh-9e-74o"/>
                         <outlet property="capsuleTypeA" destination="4Tw-Ub-NvW" id="8kP-hp-YvJ"/>
+                        <outlet property="capsuleTypeAWidth" destination="wzF-qL-Xbn" id="t5p-h0-hmK"/>
                         <outlet property="capsuleTypeB" destination="Cx5-xU-zEb" id="PNL-eR-Bke"/>
                         <outlet property="lblCapsuleTypeA" destination="KCQ-EP-WcO" id="6jb-I2-F2j"/>
+                        <outlet property="lblCapsuleTypeAWidth" destination="206-Cy-RLD" id="ruk-k3-4I5"/>
                         <outlet property="lblCapsuleTypeB" destination="Fk5-DA-Nmj" id="LNN-yb-xnq"/>
                         <outlet property="pokeEntry" destination="4uZ-iE-bTs" id="NQ0-6I-iAM"/>
                         <outlet property="pokeHeight" destination="Czg-zM-iv4" id="xeS-yM-NO8"/>

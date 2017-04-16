@@ -21,25 +21,8 @@ class PokedexTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        pokeID.view.backgroundColor = UIColor.pkPokeIDColor
-        pokeID.capsuleLabel.font = pokeID.capsuleLabel.font.withSize(11)
+        pokeID.setCapsuleView(type: Enums.CapsuleType.ID)
         pokeImage.backgroundColor = UIColor.clear
-    }
-    
-    func setTypeACapsule(_ type:Enums.PokemonType){
-        pokeTypeA.capsuleLabel.text = type.rawValue.uppercased()
-        pokeTypeA.capsuleLabel.textColor = UIColor.white
-        pokeTypeA.capsuleLabel.font = pokeTypeA.capsuleLabel.font.withSize(10)
-        pokeTypeA.view.backgroundColor = Common.getTypeColor(type)
-        
-    }
-    
-    func setTypeBCapsule(_ type:Enums.PokemonType){
-        pokeTypeB.capsuleLabel.text = type.rawValue.uppercased()
-        pokeTypeB.capsuleLabel.textColor = UIColor.white
-        pokeTypeB.capsuleLabel.font = pokeTypeB.capsuleLabel.font.withSize(10)
-        pokeTypeB.view.backgroundColor = Common.getTypeColor(type)
-        
     }
     
     func checkTypes() {

@@ -94,10 +94,10 @@ class PokedexTableViewController: UITableViewController, NVActivityIndicatorView
         cell.pokeName.text = p.poke_name!
         
         if let a = p.poke_typeA as String! {
-            cell.setTypeACapsule(Enums.PokemonType(rawValue: a)!)
+            cell.pokeTypeA.setCapsuleView(type: Enums.CapsuleType.PokeType, pokemonType: Enums.PokemonType(rawValue: a)!)
         }
         if let b = p.poke_typeB as String! {
-            cell.setTypeBCapsule(Enums.PokemonType(rawValue: b)!)
+            cell.pokeTypeB.setCapsuleView(type: Enums.CapsuleType.PokeType, pokemonType: Enums.PokemonType(rawValue: b)!)
         }
         
         cell.checkTypes()

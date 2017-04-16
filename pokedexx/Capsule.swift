@@ -47,4 +47,22 @@ import UIKit
         
         return view
     }
+    
+    func setCapsuleView(type: Enums.CapsuleType, pokemonType: Enums.PokemonType = Enums.PokemonType.None) {
+        switch type {
+        case .ID:
+            self.view.backgroundColor = UIColor.pkPokeIDColor
+            self.capsuleLabel.font = self.capsuleLabel.font.withSize(11)
+            break
+        case .PokeType:
+            self.capsuleLabel.textColor = UIColor.white
+            self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
+            self.capsuleLabel.text = pokemonType.rawValue.uppercased()
+            self.view.backgroundColor = Common.getTypeColor(pokemonType)
+            break
+        case .Species:
+            self.capsuleLabel.textColor = UIColor.white
+            self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
+        }
+    }
 }

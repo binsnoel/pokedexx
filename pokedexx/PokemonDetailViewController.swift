@@ -22,6 +22,8 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var lblCapsuleTypeB: UILabel!
     @IBOutlet weak var lblCapsuleTypeA: UILabel!
     
+    @IBOutlet weak var lblCapsuleTypeAWidth: NSLayoutConstraint!
+    @IBOutlet weak var capsuleTypeAWidth: NSLayoutConstraint!
     var pokeID : Int32 = 0
     
     override func viewDidLoad() {
@@ -41,20 +43,41 @@ class PokemonDetailViewController: UIViewController {
         
         self.pokeName.text = poke.poke_name!
         
-//        if let a = p.poke_typeA as String! {
-////            cell.setTypeACapsule(Enums.PokemonType(rawValue: a)!)
-//        }
-//        if let b = p.poke_typeB as String! {
-////            cell.setTypeBCapsule(Enums.PokemonType(rawValue: b)!)
-//        }
-//        
+        capsuleID.setCapsuleView(type: Enums.CapsuleType.ID)
+        
+        if let a = poke.poke_typeA as String! {
+            capsuleTypeA.setCapsuleView(type: Enums.CapsuleType.PokeType, pokemonType: Enums.PokemonType(rawValue: a)!)
+        }
+        if let b = poke.poke_typeB as String! {
+            capsuleTypeB.setCapsuleView(type: Enums.CapsuleType.PokeType, pokemonType: Enums.PokemonType(rawValue: b)!)
+        }
+        
+        self.checkTypes()
 
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+    }
+    
+    func checkTypes() {
+        
+        if(capsuleTypeB.capsuleLabel.text == "NONE"){
+            capsuleTypeB.isHidden = true
+            lblCapsuleTypeB.isHidden = true
+            
+            capsuleTypeAWidth.constant = 164
+            lblCapsuleTypeAWidth.constant = 164
+            lblCapsuleTypeA.text = "Type"
+        }
+        else {
+            capsuleTypeB.isHidden = false
+            lblCapsuleTypeB.isHidden = false
+            
+            capsuleTypeAWidth.constant = 80
+            lblCapsuleTypeAWidth.constant = 80
+            lblCapsuleTypeA.text = "Primary"
+        }
     }
 
 }

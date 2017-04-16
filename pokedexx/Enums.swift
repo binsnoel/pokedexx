@@ -31,5 +31,11 @@ class Enums{
         case Unkown
         case None
     }
+    
+    enum CapsuleType: String {
+        case ID
+        case PokeType
+        case Species
+    }
 
 }
