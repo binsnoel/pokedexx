@@ -6,8 +6,6 @@ target 'pokedexx' do
   use_frameworks!
 
   # Pods for pokedexx
-pod 'Alamofire', '~> 4.4'
-pod 'SwiftyJSON'
 pod 'NVActivityIndicatorView', '~> 3.0'
 pod 'SCLAlertView'
-end
+end 

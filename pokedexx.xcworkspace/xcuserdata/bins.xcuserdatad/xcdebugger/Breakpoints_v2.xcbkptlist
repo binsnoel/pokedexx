@@ -6,64 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "pokedexx/PokemonDao.swift"
-            timestampString = "513861116.620581"
+            filePath = "pokedexx/Parser.swift"
+            timestampString = "515263120.737274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "addPokemon(poke_ID:poke_order:poke_name:poke_typeA:poke_typeB:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pokedexx/PokemonDao.swift"
-            timestampString = "513876237.971707"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "addPokemon(poke_ID:poke_order:poke_name:poke_typeA:poke_typeB:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pokedexx/PokemonDao.swift"
-            timestampString = "513876237.971707"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "addPokemon(poke_ID:poke_order:poke_name:poke_typeA:poke_typeB:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pokedexx/PokemonDao.swift"
-            timestampString = "513876237.971707"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "addPokemon(poke_ID:poke_order:poke_name:poke_typeA:poke_typeB:)"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "parsePokemonDetail(byID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "pokedexx/PokemonDao.swift"
-            timestampString = "513931945.169127"
+            filePath = "pokedexx/Parser.swift"
+            timestampString = "515263121.331647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "getPokemon(byOrder:)"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "parsePokemonDetail(byID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "pokedexx/PokemonDao.swift"
-            timestampString = "513931947.044269"
+            filePath = "pokedexx/Parser.swift"
+            timestampString = "515263122.931701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "getPokemon(byOrder:)"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "parsePokemonDetail(byID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,14 +57,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "pokedexx/PokemonDao.swift"
-            timestampString = "513931947.892912"
+            filePath = "pokedexx/csv.swift"
+            timestampString = "515263613.808944"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "getPokemon(byOrder:)"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "init(content:delimiter:encoding:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pokedexx.CSV.init (content : Swift.Optional&lt;Swift.String&gt;, delimiter : Foundation.CharacterSet, encoding : Swift.UInt) throws -&gt; pokedexx.CSV"
+                  moduleName = "pokedexx"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bins/Documents/iOS/pokedexx/pokedexx/csv.swift"
+                  timestampString = "515263613.823837"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pokedexx.CSV.init (content : Swift.Optional&lt;Swift.String&gt;, delimiter : Foundation.CharacterSet, encoding : Swift.UInt) throws -&gt; pokedexx.CSV"
+                  moduleName = "pokedexx"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bins/Documents/iOS/pokedexx/pokedexx/csv.swift"
+                  timestampString = "515263613.828081"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "304">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

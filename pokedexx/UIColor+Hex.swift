@@ -34,6 +34,7 @@ extension UIColor {
     
     
     static let pkPokeIDColor = UIColor(netHex: 0xececec)
+    static let pkPokeNavBarRed     = UIColor(netHex: 0xee4208)
     static let pkPokeRed     = UIColor(netHex: 0xee4208)
     
     

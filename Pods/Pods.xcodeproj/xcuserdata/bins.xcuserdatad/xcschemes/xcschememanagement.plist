@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>SwiftCSV.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -37,12 +42,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>04CC0F0D4DC7C58785E205BEA43BFDEB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A8F72802CC55C8A0882A26587F7FD68</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2D2A9016A0064B937AB1CD7CB03F0106</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>2F6626C23FC5648BBD54F9FA9267B751</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>31A1252099B09B07FA9D642F734FC4EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3232E3D1400598CF2701651B07B09B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -53,6 +78,11 @@
 			<true/>
 		</dict>
 		<key>47FB775D00C34452CE0C71AE00CBF1B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A54EEB163FD452027157DEF5AF83CF8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +103,11 @@
 			<true/>
 		</dict>
 		<key>987086CD56B8539E8DF66DCDCFAA5CAE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B7BBD6149325DB3EBF38396E368A57DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

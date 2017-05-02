@@ -55,14 +55,17 @@ import UIKit
             self.capsuleLabel.font = self.capsuleLabel.font.withSize(11)
             break
         case .PokeType:
-            self.capsuleLabel.textColor = UIColor.white
-            self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
-            self.capsuleLabel.text = pokemonType.rawValue.uppercased()
-            self.view.backgroundColor = Common.getTypeColor(pokemonType)
+                self.capsuleLabel.textColor = UIColor.white
+                self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
+                self.capsuleLabel.text = pokemonType.desc.uppercased()
+                self.view.backgroundColor = Common.getTypeColor(pokemonType)
             break
         case .Species:
-            self.capsuleLabel.textColor = UIColor.white
+            self.capsuleLabel.textColor = UIColor.black
             self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
+            self.view.backgroundColor = UIColor.white
+            self.view.layer.borderWidth = 1
+            self.view.layer.borderColor = UIColor.darkGray.cgColor
         }
     }
 }

@@ -12,6 +12,7 @@ class Constants {
     static let baseUri:String = String("http://pokeapi.co/api/v2/")
     static let pokedexUri:String = String("pokedex/")
     static let pokemonUri:String = String("pokemon/")
+    static let pokemonSpeciesUri:String = String("pokemon-species/")
     static let typeUri:String = String("type/")
     
 }

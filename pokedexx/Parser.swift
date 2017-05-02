@@ -7,68 +7,95 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 class Parser: NSObject{
     
-//    func parseJSONPokedex(json : JSON) {
-//        var jsonPokedex = [[String:AnyObject]]()
-//        
-//        if let resData = json["pokemon_entries"].arrayObject {
-//            jsonPokedex = resData as! [[String:AnyObject]]
-//            if jsonPokedex.count > 0 {
-//                for pokemon in jsonPokedex {
-//                    
-//                    if let pokeID = pokemon["entry_number"] as? Int32 {
-//                        if let pokeName = pokemon["pokemon_species"]?["name"] as? String {
-//                            print(pokeName + " Added to DB")
-//                            PokemonDao.shared.addPokemon(poke_ID: pokeID,poke_order:  poke_name: pokeName.capitalized)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-    func parsePokemonData(json: JSON) {
-        var typeA = "None"
-        var typeB = "None"
-        
-        if let name = json["name"].string {
-            if let id = json["id"].number {
-                if let order = json["order"].number {
-                    if let slot1 = json["types"][0]["slot"].number{
-                        if slot1 == 1 {
-                            if let type1 = json["types"][0]["type"]["name"].string{
-                                typeA = type1
-                                typeB = "None"
-                            }
-                        }
-                        else if slot1 == 2 {
-                            if let type1 = json["types"][0]["type"]["name"].string{
-                                typeB = type1
-                            }
-                        }
-                    }
-                    if let slot2 = json["types"][1]["slot"].number{
-                        if slot2 == 1 {
-                            if let type1 = json["types"][1]["type"]["name"].string{
-                                typeA = type1
-                            }
-                        }
-                    }
-                    
-                    PokemonDao.shared.addPokemon(poke_ID: Int32(id),
-                                                 poke_order: Int32(order),
-                                                 poke_name: name.capitalized,
-                                                 poke_typeA: typeA.capitalized,
-                                                 poke_typeB: typeB.capitalized)
-                    
-                    PokemonDao.shared.refreshCache()
+    func parsePokemon() {
+        do {
+            let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")
+            let pokemons = try CSV(contentsOfURL: path!)
+            
+            let typePath = Bundle.main.path(forResource: "pokemon_types", ofType: "csv")
+            let types = try CSV(contentsOfURL: typePath!)
+            
+            let speciesPath = Bundle.main.path(forResource: "pokemon_species_names", ofType: "csv")
+            let species = try CSV(contentsOfURL: speciesPath!)
+            
+            for row in pokemons.rows {
+                
+                //get pokemon types
+                let pokemonType = types.rows.filter{
+                    return $0["pokemon_id"] == row["id"]
                 }
+                var a = "10002"
+                var b = "10002"
+                
+                if let typeA = pokemonType.first?["type_id"] {
+                    a = typeA
+                }
+                if pokemonType.count > 1 {
+                    if let typeB = pokemonType.last?["type_id"] {
+                        b = typeB
+                    }
+                }
+                
+                //get pokemon genus/description
+                var gen = ""
+                let genus = species.rows.filter{
+                    return $0["pokemon_species_id"] == row["id"] && $0["local_language_id"] == "9"
+                }
+                if let genu = genus.first?["genus"] {
+                    gen = genu
+                }
+                
+                PokemonDao.shared.addPokemon(id: Int32(row["id"]!)!,
+                                             order: Int32(row["order"]!)!,
+                                             name: Common.formatName(row["identifier"]!),
+                                             typeA: a,
+                                             typeB: b,
+                                             height: Int32(row["height"]!)!,
+                                             weight: Int32(row["weight"]!)!,
+                                             baseExp: Int32(row["base_experience"]!)!,
+                                             species: Int32(row["species_id"]!)!,
+                                             genus: gen)
+                
+                                    PokemonDao.shared.refreshPokedexCache()
             }
+            
+            let userDefaults = UserDefaults.standard
+            userDefaults.setValue(true, forKey: "hasLoaded")
+            userDefaults.synchronize()
+            
+            
+        } catch {
+            // Error handling
+            //alert view
         }
-        
-        
     }
+    
+    func parsePokemonDetail(byID: Int32){
+        do {
+            let path = Bundle.main.path(forResource: "pokemon_species_flavor_text", ofType: "csv")
+            let details = try CSV(contentsOfURL: path!)
+            
+            let detail = details.rows.filter{
+                return $0["species_id"] == String(byID) && $0["version_id"] == "1" && $0["language_id"] == "9"
+            }
+            
+            if detail.count > 0 {
+                let flavor_text = detail.first?["flavor_text"]
+                PokemonDao.shared.addPokemonDetail(speciesID: byID, desc: flavor_text!)
+                PokemonDao.shared.refreshPokeDetailCache()
+            }
+            else{
+                //notify UI that parsing failed and display error message
+            }
+            
+        }
+        catch {
+            // Error handling
+            //alertview
+        }
+    }
+
 }

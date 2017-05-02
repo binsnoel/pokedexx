@@ -56,4 +56,25 @@ class Common {
         }
     }
     
+    //Format string ID to #XXX (3 digit number)
+    public static func format(forId: Int32) -> String{
+        
+        let formatter = NumberFormatter()
+        formatter.minimumIntegerDigits = 3
+        return "#" + formatter.string(from: NSNumber(value:(forId)))!
+        
+    }
+    
+    //Format pokemon names
+    public static func formatName(_ forName: String) -> String {
+        let toArray = forName.components(separatedBy: "-")
+        var arr = [String]()
+        for word in toArray {
+            arr.append(word.capitalized)
+        }
+        let backToString = arr.joined(separator: " ")
+        
+        return backToString//forName.replacingOccurrences(of: "-", with: " ")
+    }
+    
 }

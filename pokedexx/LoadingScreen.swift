@@ -8,8 +8,6 @@
 
 import UIKit
 import NVActivityIndicatorView
-import Alamofire
-import SwiftyJSON
 import SCLAlertView
 
 class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
@@ -20,30 +18,28 @@ class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        router()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true;
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.value(forKey: "hasLoaded") == nil {
+            DispatchQueue.main.async(execute: {
+                self.loadingTexts()
+            })
+            Parser().parsePokemon()
+        }
+        
+        displayPokedexView(animated:true)
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false;
-        ServerController.shared.delegate = nil
     }
     
-    func router(){
-        if PokemonDao.shared.pokedexCache.count >= initialNumberofPokemons {
-            displayPokedexView(animated:false)
-        }
-        else {
-            queryPokemon()
-        }
-    }
-    
-    func queryPokemon(){
-        ServerController.shared.delegate = self
-        ServerController.shared.getPokemonDataById(from:1, to:Int32(initialNumberofPokemons))
+    func loadingTexts(){
         
         NVActivityIndicatorView.DEFAULT_COLOR = UIColor.darkGray
         
@@ -91,13 +87,3 @@ class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
 
 }
 
-extension LoadingScreen: ServerControllerDelegate {
-    
-    func didFinishTask(sender: ServerController) {
-        self.displayPokedexView(animated:true)
-    }
-    
-    func didFinishSingleTask(sender: ServerController) {
-        //do nothing
-    }
-}
