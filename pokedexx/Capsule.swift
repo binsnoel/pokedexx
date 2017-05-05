@@ -9,10 +9,11 @@
 import UIKit
 
 @IBDesignable class Capsule: UIView {
-    // Our custom view from the XIB file
-    var view: UIView!
     
+    var view: UIView!
     @IBOutlet weak var capsuleLabel: UILabel!
+    @IBOutlet weak var info: UIImageView!
+    @IBOutlet weak var hiddenView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,23 +50,39 @@ import UIKit
     }
     
     func setCapsuleView(type: Enums.CapsuleType, pokemonType: Enums.PokemonType = Enums.PokemonType.None) {
+        
+        self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
+        self.hiddenView.isHidden = true
+        self.view.backgroundColor = UIColor.white
+        
         switch type {
         case .ID:
             self.view.backgroundColor = UIColor.pkPokeIDColor
             self.capsuleLabel.font = self.capsuleLabel.font.withSize(11)
             break
         case .PokeType:
-                self.capsuleLabel.textColor = UIColor.white
-                self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
-                self.capsuleLabel.text = pokemonType.desc.uppercased()
-                self.view.backgroundColor = Common.getTypeColor(pokemonType)
+            self.capsuleLabel.textColor = UIColor.white
+            self.capsuleLabel.text = pokemonType.desc.uppercased()
+            self.view.backgroundColor = Common.getTypeColor(pokemonType)
             break
         case .Species:
             self.capsuleLabel.textColor = UIColor.black
-            self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
-            self.view.backgroundColor = UIColor.white
             self.view.layer.borderWidth = 1
             self.view.layer.borderColor = UIColor.darkGray.cgColor
+            break
+        case .Ability:
+            self.capsuleLabel.textColor = UIColor.black
+            self.view.layer.borderWidth = 1
+            self.view.layer.borderColor = UIColor.darkGray.cgColor
+            view.layer.cornerRadius = 5
+            break
+        case .AbilityHidden:
+            self.capsuleLabel.textColor = UIColor.black
+            self.view.layer.borderWidth = 1
+            self.view.layer.borderColor = UIColor.darkGray.cgColor
+            view.layer.cornerRadius = 5
+            self.hiddenView.isHidden = false
+            break
         }
     }
 }

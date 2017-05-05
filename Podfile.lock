@@ -1,15 +1,18 @@
 PODS:
+  - CSwiftV (0.0.5)
   - NVActivityIndicatorView (3.6.0)
   - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
+  - CSwiftV
   - NVActivityIndicatorView (~> 3.0)
   - SCLAlertView
 
 SPEC CHECKSUMS:
+  CSwiftV: 2560532e2e5b04d95c36b0f49a8dc745071fa525
   NVActivityIndicatorView: c7c1c4300b418bd9ed06459e78d4df859ddbe31f
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 103d62d81df687e4f26ced98075e9b602a333a15
+PODFILE CHECKSUM: 0d11957bfeab1ebd8dfceb97d87310ab4e13c996
 
 COCOAPODS: 1.1.1

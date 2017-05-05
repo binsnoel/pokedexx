@@ -10,6 +10,8 @@ import UIKit
 
 class PokemonDetailViewController: UIViewController {
 
+    @IBOutlet weak var inside: UIView!
+    @IBOutlet weak var abilityView: UIView!
     @IBOutlet weak var pokeImage: UIImageView!
     @IBOutlet weak var capsuleID: Capsule!
     @IBOutlet weak var pokeName: UILabel!
@@ -30,7 +32,16 @@ class PokemonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Parser().parsePokemonDetail(byID: selectedPokeID)
+        
+        if let index2 = PokemonDao.shared.pokeDetailCache.index(where: { $0.speciesID == selectedPokeID }) {
+            let detail = PokemonDao.shared.pokeDetailCache[index2]
+            
+            self.pokeEntry.text = detail.desc!.condensedWhitespace
+        }
+        else {
+            Parser().parsePokemonDetail(byID: selectedPokeID)
+        }
+        
         setupView()
         
     }
@@ -71,9 +82,12 @@ class PokemonDetailViewController: UIViewController {
             if let index2 = PokemonDao.shared.pokeDetailCache.index(where: { $0.speciesID == selectedPokeID }) {
                 let detail = PokemonDao.shared.pokeDetailCache[index2]
                 
-                self.pokeEntry.text = detail.desc!
+                self.pokeEntry.text = detail.desc!.condensedWhitespace
             }
             
+            self.abilityView.backgroundColor = UIColor.darkGray
+            self.abilityView.layer.cornerRadius = 10
+            self.inside.layer.cornerRadius = 9
         }
     }
     

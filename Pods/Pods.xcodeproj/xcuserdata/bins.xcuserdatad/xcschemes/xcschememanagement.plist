@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>CSwiftV.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>GTMActivityIndicatorView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -87,12 +92,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>57CCFF3ACFB0E09F2619E7C7B1F7F8D8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>60908C982BFF1F3A04122F717FBCFEB2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>628C164448C53DC69502CBAFB8819264</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6BD860705C840B81A3ED2656BCDC7036</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7DDCC2E343ED32EB5E3830872B799CB5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,6 +127,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A7ACD1078889E1275D56FFE16459A23F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B7BBD6149325DB3EBF38396E368A57DA</key>
 		<dict>
 			<key>primary</key>
@@ -117,12 +142,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D5EBBC3C7698FA9B82EB701B4A0FCA35</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D96289D3DC93D8327EC04F66B747F1AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>DED2AA6DDEFFCB2C2DA7846B6924AE5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E5750041B16A7BB187621B58A2977C01</key>
 		<dict>
 			<key>primary</key>
 			<true/>

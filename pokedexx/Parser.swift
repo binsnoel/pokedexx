@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import CSwiftV
 
 class Parser: NSObject{
     
     func parsePokemon() {
         do {
             let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")
-            let pokemons = try CSV(contentsOfURL: path!)
+            let pokemons = try CSwiftV(with: String(contentsOfFile: path!, encoding: String.Encoding.utf8))
             
             let typePath = Bundle.main.path(forResource: "pokemon_types", ofType: "csv")
-            let types = try CSV(contentsOfURL: typePath!)
+            let types = try CSwiftV(with: String(contentsOfFile: typePath!, encoding: String.Encoding.utf8))
             
             let speciesPath = Bundle.main.path(forResource: "pokemon_species_names", ofType: "csv")
-            let species = try CSV(contentsOfURL: speciesPath!)
+            let species = try CSwiftV(with: String(contentsOfFile: speciesPath!, encoding: String.Encoding.utf8))
             
             for row in pokemons.rows {
                 
@@ -42,7 +43,7 @@ class Parser: NSObject{
                 //get pokemon genus/description
                 var gen = ""
                 let genus = species.rows.filter{
-                    return $0["pokemon_species_id"] == row["id"] && $0["local_language_id"] == "9"
+                    return $0["pokemon_species_id"] == row["species_id"] && $0["local_language_id"] == "9"
                 }
                 if let genu = genus.first?["genus"] {
                     gen = genu
@@ -59,14 +60,13 @@ class Parser: NSObject{
                                              species: Int32(row["species_id"]!)!,
                                              genus: gen)
                 
-                                    PokemonDao.shared.refreshPokedexCache()
             }
             
             let userDefaults = UserDefaults.standard
             userDefaults.setValue(true, forKey: "hasLoaded")
             userDefaults.synchronize()
             
-            
+            PokemonDao.shared.refreshPokedexCache()
         } catch {
             // Error handling
             //alert view
@@ -76,7 +76,7 @@ class Parser: NSObject{
     func parsePokemonDetail(byID: Int32){
         do {
             let path = Bundle.main.path(forResource: "pokemon_species_flavor_text", ofType: "csv")
-            let details = try CSV(contentsOfURL: path!)
+            let details = try CSwiftV(with: String(contentsOfFile: path!, encoding: String.Encoding.utf8))
             
             let detail = details.rows.filter{
                 return $0["species_id"] == String(byID) && $0["version_id"] == "1" && $0["language_id"] == "9"

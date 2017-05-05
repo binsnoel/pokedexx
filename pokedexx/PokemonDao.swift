@@ -69,6 +69,9 @@ class PokemonDao : NSObject {
     class func getAll() -> [Pokemon]? {
         if let context = DataManager.shared.objectContext {
             let request: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
+            let arr = [ NSSortDescriptor(key: "speciesID", ascending: true),
+                        NSSortDescriptor(key: "order", ascending: true)]
+            request.sortDescriptors = arr
             if let pokemons = try? context.fetch(request) {
                 return pokemons
             }

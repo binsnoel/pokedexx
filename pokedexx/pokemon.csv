@@ -27,10 +27,10 @@ id,identifier,species_id,height,weight,base_experience,order,is_default
 26,raichu,26,8,300,218,39,1
 27,sandshrew,27,6,120,60,40,1
 28,sandslash,28,10,295,158,41,1
-29,nidoran-f,29,4,70,55,42,1
+29,nidoran,29,4,70,55,42,1
 30,nidorina,30,8,200,128,43,1
 31,nidoqueen,31,13,600,227,44,1
-32,nidoran-m,32,5,90,55,45,1
+32,nidoran,32,5,90,55,45,1
 33,nidorino,33,9,195,128,46,1
 34,nidoking,34,14,620,227,47,1
 35,clefairy,35,6,75,113,49,1
@@ -437,7 +437,7 @@ id,identifier,species_id,height,weight,base_experience,order,is_default
 436,bronzor,436,5,605,60,519,1
 437,bronzong,437,13,1870,175,520,1
 438,bonsly,438,5,150,58,238,1
-439,mime-jr,439,6,130,62,156,1
+439,mime-jr.,439,6,130,62,156,1
 440,happiny,440,6,244,110,142,1
 441,chatot,441,5,19,144,521,1
 442,spiritomb,442,10,1080,170,522,1
@@ -485,7 +485,7 @@ id,identifier,species_id,height,weight,base_experience,order,is_default
 484,palkia,484,42,3360,306,552,1
 485,heatran,485,17,4300,270,553,1
 486,regigigas,486,37,4200,302,554,1
-487,altered giratina,487,45,7500,306,555,1
+487,giratina,487,45,7500,306,555,1
 488,cresselia,488,15,856,270,557,1
 489,phione,489,4,31,216,558,1
 490,manaphy,490,3,14,270,559,1
@@ -645,8 +645,8 @@ id,identifier,species_id,height,weight,base_experience,order,is_default
 644,zekrom,644,29,3450,306,719,1
 645,incarnate-landorus,645,15,680,270,720,1
 646,kyurem,646,30,3250,297,722,1
-647,ordinary-keldeo,647,14,485,261,725,1
-648,aria-meloetta,648,6,65,270,727,1
+647,keldeo,647,14,485,261,725,1
+648,meloetta-aria,648,6,65,270,727,1
 649,genesect,649,15,825,270,729,1
 650,chespin,650,4,90,63,730,1
 651,quilladin,651,7,290,142,731,1

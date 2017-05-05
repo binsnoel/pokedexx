@@ -81,6 +81,8 @@ class Enums{
         case ID
         case PokeType
         case Species
+        case Ability
+        case AbilityHidden
     }
 
 }
