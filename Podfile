@@ -8,5 +8,4 @@ target 'pokedexx' do
   # Pods for pokedexx
 pod 'NVActivityIndicatorView', '~> 3.0'
 pod 'SCLAlertView'
-pod 'CSwiftV'
 end 

@@ -10,8 +10,8 @@ import UIKit
 
 class PokemonDetailViewController: UIViewController {
 
-    @IBOutlet weak var inside: UIView!
-    @IBOutlet weak var abilityView: UIView!
+    @IBOutlet var myView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pokeImage: UIImageView!
     @IBOutlet weak var capsuleID: Capsule!
     @IBOutlet weak var pokeName: UILabel!
@@ -33,6 +33,31 @@ class PokemonDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getDetails()
+        setupView()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let scrollSize = CGSize(width: myView.frame.width,height: myView.frame.height)
+        scrollView.contentSize = scrollSize
+
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let contentSize = self.pokeEntry.sizeThatFits(self.pokeEntry.bounds.size)
+        var frame = self.pokeEntry.frame
+        frame.size.height = contentSize.height
+        self.pokeEntry.frame = frame
+        
+        let aspectRatioTextViewConstraint = NSLayoutConstraint(item: self.pokeEntry, attribute: .height, relatedBy: .equal, toItem: self.pokeEntry, attribute: .width, multiplier: self.pokeEntry.bounds.height/self.pokeEntry.bounds.width, constant: 1)
+        self.pokeEntry.addConstraint(aspectRatioTextViewConstraint)
+    }
+    
+    func getDetails() {
         if let index2 = PokemonDao.shared.pokeDetailCache.index(where: { $0.speciesID == selectedPokeID }) {
             let detail = PokemonDao.shared.pokeDetailCache[index2]
             
@@ -41,9 +66,6 @@ class PokemonDetailViewController: UIViewController {
         else {
             Parser().parsePokemonDetail(byID: selectedPokeID)
         }
-        
-        setupView()
-        
     }
     
     func setupView() {
@@ -85,9 +107,7 @@ class PokemonDetailViewController: UIViewController {
                 self.pokeEntry.text = detail.desc!.condensedWhitespace
             }
             
-            self.abilityView.backgroundColor = UIColor.darkGray
-            self.abilityView.layer.cornerRadius = 10
-            self.inside.layer.cornerRadius = 9
+ 
         }
     }
     

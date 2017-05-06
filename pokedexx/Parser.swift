@@ -7,21 +7,19 @@
 //
 
 import UIKit
-import CSwiftV
 
 class Parser: NSObject{
     
     func parsePokemon() {
         do {
             let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")
-            let pokemons = try CSwiftV(with: String(contentsOfFile: path!, encoding: String.Encoding.utf8))
+            let pokemons = try CSV(contentsOfURL: path!)
             
             let typePath = Bundle.main.path(forResource: "pokemon_types", ofType: "csv")
-            let types = try CSwiftV(with: String(contentsOfFile: typePath!, encoding: String.Encoding.utf8))
+            let types = try CSV(contentsOfURL: typePath!)
             
             let speciesPath = Bundle.main.path(forResource: "pokemon_species_names", ofType: "csv")
-            let species = try CSwiftV(with: String(contentsOfFile: speciesPath!, encoding: String.Encoding.utf8))
-            
+            let species = try CSV(contentsOfURL: speciesPath!)
             for row in pokemons.rows {
                 
                 //get pokemon types
@@ -76,7 +74,7 @@ class Parser: NSObject{
     func parsePokemonDetail(byID: Int32){
         do {
             let path = Bundle.main.path(forResource: "pokemon_species_flavor_text", ofType: "csv")
-            let details = try CSwiftV(with: String(contentsOfFile: path!, encoding: String.Encoding.utf8))
+            let details = try CSV(contentsOfURL: path!)
             
             let detail = details.rows.filter{
                 return $0["species_id"] == String(byID) && $0["version_id"] == "1" && $0["language_id"] == "9"

@@ -8,11 +8,13 @@
 
 import UIKit
 
-@IBDesignable class EvolutionChain: UIView {
+@IBDesignable class Abilities: UIView {
     
     
+    @IBOutlet weak var outerView: UIView!
     @IBOutlet weak var innerView: UIView!
     @IBOutlet var view: UIView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
@@ -28,9 +30,11 @@ import UIKit
         
         // use bounds not frame or it'll be offset
         view.frame = bounds
-        view.layer.cornerRadius = 10
-        innerView.layer.cornerRadius = 9
         
+        self.outerView.backgroundColor = UIColor.darkGray
+        self.outerView.layer.cornerRadius = 10
+        self.innerView.layer.cornerRadius = 9
+        self.innerView.backgroundColor = UIColor.white
         // Make the view stretch with containing view
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvolutionChain" customModule="pokedexx" customModuleProvider="target">
             <connections>
+                <outlet property="innerView" destination="IgD-SB-WdQ" id="nao-5R-H7o"/>
                 <outlet property="view" destination="iN0-l3-epB" id="rcj-OJ-kZl"/>
             </connections>
         </placeholder>
@@ -19,26 +20,120 @@
             <rect key="frame" x="0.0" y="0.0" width="349" height="124"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYf-am-pe8" customClass="EvolutionItem" customModule="pokedexx" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="78" height="124"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgD-SB-WdQ">
+                    <rect key="frame" x="1" y="1" width="347" height="122"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolution Chain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-ba-iNC">
+                            <rect key="frame" x="123.5" y="112" width="100" height="21"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="3Um-JU-9zY"/>
+                                <constraint firstAttribute="height" constant="21" id="sDe-VM-gFG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZYf-am-pe8" customClass="EvolutionItem" customModule="pokedexx" customModuleProvider="target">
+                            <rect key="frame" x="10" y="10" width="58" height="103"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="58" id="5DE-jb-Bln"/>
+                                <constraint firstAttribute="height" constant="103" id="ABy-2U-hrW"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQt-Tw-aW5" customClass="EvolutionItem" customModule="pokedexx" customModuleProvider="target">
+                            <rect key="frame" x="279" y="10" width="58" height="103"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="103" id="cvF-al-fYl"/>
+                                <constraint firstAttribute="width" constant="58" id="pRi-fG-Q74"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sVY-oe-uk8" customClass="EvolutionItem" customModule="pokedexx" customModuleProvider="target">
+                            <rect key="frame" x="144" y="10" width="58" height="103"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcx-X1-PxN">
+                            <rect key="frame" x="68" y="17" width="25.5" height="77"/>
+                            <color key="backgroundColor" red="0.014482318940000001" green="0.71465411729999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="j96-Yb-X9Q"/>
+                            </constraints>
+                        </view>
+                        <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c5y-yb-h0F">
+                            <rect key="frame" x="118.5" y="17" width="25.5" height="77"/>
+                            <color key="backgroundColor" red="0.014482318940000001" green="0.71465411729999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="UVY-Xi-iDB">
+                            <rect key="frame" x="93.5" y="49" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="M2G-Dg-G9D"/>
+                                <constraint firstAttribute="height" constant="25" id="N6N-80-Loo"/>
+                            </constraints>
+                        </imageView>
+                        <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7MU-KI-OGe">
+                            <rect key="frame" x="202" y="23" width="26" height="77"/>
+                            <color key="backgroundColor" red="0.014482318940000001" green="0.71465411729999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="5xj-eR-gk2"/>
+                            </constraints>
+                        </view>
+                        <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="krT-Eg-Ivc">
+                            <rect key="frame" x="253" y="23" width="26" height="77"/>
+                            <color key="backgroundColor" red="0.014482318940000001" green="0.71465411729999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="347" id="2h0-CE-T7e"/>
+                        <constraint firstAttribute="trailing" secondItem="AQt-Tw-aW5" secondAttribute="trailing" constant="10" id="7Hh-mR-XE9"/>
+                        <constraint firstItem="tcx-X1-PxN" firstAttribute="leading" secondItem="ZYf-am-pe8" secondAttribute="trailing" id="9uM-dy-pAt"/>
+                        <constraint firstItem="f3a-ba-iNC" firstAttribute="centerX" secondItem="IgD-SB-WdQ" secondAttribute="centerX" id="AL5-Py-W97"/>
+                        <constraint firstAttribute="bottom" secondItem="f3a-ba-iNC" secondAttribute="bottom" constant="-11" id="Jpr-Yc-6tl"/>
+                        <constraint firstItem="UVY-Xi-iDB" firstAttribute="leading" secondItem="tcx-X1-PxN" secondAttribute="trailing" id="M4u-A4-dTs"/>
+                        <constraint firstItem="tcx-X1-PxN" firstAttribute="width" secondItem="c5y-yb-h0F" secondAttribute="width" id="StF-I4-3O1"/>
+                        <constraint firstAttribute="height" constant="122" id="XCT-m4-r2y"/>
+                        <constraint firstItem="UVY-Xi-iDB" firstAttribute="centerY" secondItem="IgD-SB-WdQ" secondAttribute="centerY" id="YMz-B9-HFd"/>
+                        <constraint firstItem="sVY-oe-uk8" firstAttribute="leading" secondItem="c5y-yb-h0F" secondAttribute="trailing" id="b8M-HK-6OH"/>
+                        <constraint firstItem="ZYf-am-pe8" firstAttribute="centerY" secondItem="IgD-SB-WdQ" secondAttribute="centerY" id="cxo-Pm-zAg"/>
+                        <constraint firstItem="c5y-yb-h0F" firstAttribute="leading" secondItem="UVY-Xi-iDB" secondAttribute="trailing" id="d43-Sd-Wxf"/>
+                        <constraint firstItem="7MU-KI-OGe" firstAttribute="leading" secondItem="sVY-oe-uk8" secondAttribute="trailing" id="dsg-I8-Dfr"/>
+                        <constraint firstItem="sVY-oe-uk8" firstAttribute="centerY" secondItem="IgD-SB-WdQ" secondAttribute="centerY" id="gLG-lQ-dri"/>
+                        <constraint firstItem="7MU-KI-OGe" firstAttribute="width" secondItem="krT-Eg-Ivc" secondAttribute="width" id="hNI-oc-vr0"/>
+                        <constraint firstItem="AQt-Tw-aW5" firstAttribute="leading" secondItem="krT-Eg-Ivc" secondAttribute="trailing" id="sIe-Ul-q5w"/>
+                        <constraint firstItem="ZYf-am-pe8" firstAttribute="leading" secondItem="IgD-SB-WdQ" secondAttribute="leading" constant="10" id="thF-sE-TQ8"/>
+                        <constraint firstItem="sVY-oe-uk8" firstAttribute="top" secondItem="IgD-SB-WdQ" secondAttribute="top" constant="10" id="u28-tJ-ZKc"/>
+                        <constraint firstItem="sVY-oe-uk8" firstAttribute="centerX" secondItem="IgD-SB-WdQ" secondAttribute="centerX" id="vfn-Br-xeP"/>
+                        <constraint firstItem="AQt-Tw-aW5" firstAttribute="centerY" secondItem="IgD-SB-WdQ" secondAttribute="centerY" id="vr8-lj-P7X"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2kC-mv-K4C" customClass="EvolutionItem" customModule="pokedexx" customModuleProvider="target">
-                    <rect key="frame" x="136" y="0.0" width="78" height="124"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NpD-lj-vSh" customClass="EvolutionItem" customModule="pokedexx" customModuleProvider="target">
-                    <rect key="frame" x="271" y="0.0" width="78" height="124"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="yOh-9t-GPm">
+                    <rect key="frame" x="229" y="50" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="03J-Wm-6vy"/>
+                        <constraint firstAttribute="width" constant="25" id="Ngh-Qj-56F"/>
+                    </constraints>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yOh-9t-GPm" firstAttribute="centerY" secondItem="IgD-SB-WdQ" secondAttribute="centerY" id="2EH-5f-W1y"/>
+                <constraint firstItem="IgD-SB-WdQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="1" id="8Vx-4N-6kO"/>
+                <constraint firstItem="krT-Eg-Ivc" firstAttribute="leading" secondItem="yOh-9t-GPm" secondAttribute="trailing" id="CZh-JW-ham"/>
+                <constraint firstItem="IgD-SB-WdQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="KVz-E6-Pgm"/>
+                <constraint firstItem="yOh-9t-GPm" firstAttribute="leading" secondItem="7MU-KI-OGe" secondAttribute="trailing" id="O0f-T8-IRA"/>
+                <constraint firstItem="IgD-SB-WdQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Oey-r4-m5j"/>
+                <constraint firstAttribute="bottom" secondItem="IgD-SB-WdQ" secondAttribute="bottom" constant="1" id="hAv-cF-KLp"/>
+                <constraint firstItem="IgD-SB-WdQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="1" id="ok6-xl-dkz"/>
+                <constraint firstAttribute="trailing" secondItem="IgD-SB-WdQ" secondAttribute="trailing" constant="1" id="xB8-hx-94x"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="22.5" y="-197"/>
         </view>
     </objects>
+    <resources>
+        <image name="right" width="50" height="50"/>
+    </resources>
 </document>
