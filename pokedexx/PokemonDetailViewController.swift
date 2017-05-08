@@ -36,6 +36,9 @@ class PokemonDetailViewController: UIViewController {
         getDetails()
         setupView()
         
+        let pk = Pokemon()
+        pk.baseExp = 100
+        print(pk)
     }
     
     override func viewDidAppear(_ animated: Bool) {

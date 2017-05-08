@@ -8,11 +8,11 @@
 
 import UIKit
 
-@IBDesignable class EvolutionItem: UIView {
-
+@IBDesignable class MegaEvolution: UIView {
     
+    
+    @IBOutlet weak var innerView: UIView!
     @IBOutlet var view: UIView!
-    var isSelected = false
     override init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
@@ -28,13 +28,12 @@ import UIKit
         
         // use bounds not frame or it'll be offset
         view.frame = bounds
+        view.layer.cornerRadius = 10
+        innerView.layer.cornerRadius = 9
         
         // Make the view stretch with containing view
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         
-        if isSelected {
-            self.view.backgroundColor = UIColor.lightGray
-        }
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         addSubview(view)
     }
@@ -47,5 +46,5 @@ import UIKit
         
         return view
     }
-
+    
 }

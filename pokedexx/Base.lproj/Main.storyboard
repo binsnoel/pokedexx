@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qma-qU-46a" id="C4y-IS-o01">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bulbasaur" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ah-kg-gqC">
@@ -317,7 +317,6 @@
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uZ-iE-bTs">
                                                 <rect key="frame" x="8" y="5" width="359" height="60"/>
-                                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="gSP-e9-7Bb"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="304" id="p2M-hy-8Vw"/>
@@ -335,7 +334,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkl-Wz-koO">
                                                 <rect key="frame" x="8" y="192" width="359" height="181"/>
-                                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="2dI-Cc-2FP"/>
                                                     <constraint firstAttribute="height" constant="181" id="OaC-Qw-ro5"/>
@@ -348,7 +347,6 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.93333333330000001" green="0.25882352939999997" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="kD3-F6-tS2" secondAttribute="trailing" constant="8" id="1iT-C4-0HF"/>
                                             <constraint firstItem="kD3-F6-tS2" firstAttribute="width" secondItem="4uZ-iE-bTs" secondAttribute="width" id="207-MJ-Kto"/>
@@ -372,7 +370,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="nj3-6U-f2e" firstAttribute="height" secondItem="i73-xh-hLN" secondAttribute="height" constant="212" id="1zL-R5-0tR"/>
                                     <constraint firstAttribute="trailing" secondItem="nj3-6U-f2e" secondAttribute="trailing" id="H92-NL-hcr"/>

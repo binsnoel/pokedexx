@@ -8,7 +8,13 @@
 
 import UIKit
 
-class Parser: NSObject{
+protocol ParserDelegate : class {
+    func didFinishParsingPokemon()
+}
+
+class Parser{
+    public static let shared = Parser()
+    weak var delegate:ParserDelegate?
     
     func parsePokemon() {
         do {
@@ -65,6 +71,10 @@ class Parser: NSObject{
             userDefaults.synchronize()
             
             PokemonDao.shared.refreshPokedexCache()
+            
+            DispatchQueue.main.async(execute: {
+                self.delegate?.didFinishParsingPokemon()
+            })
         } catch {
             // Error handling
             //alert view

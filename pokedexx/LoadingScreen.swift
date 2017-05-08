@@ -14,25 +14,19 @@ class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
     
     var texts = ["Applying Repel", "Waking Snorlax", "Seeking Seaking", "Charging Pikachu", "Hatching Eggs" ,"Loading Pokédex"]
     var timer : Timer?
-    let initialNumberofPokemons = 30
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.value(forKey: "hasLoaded") == nil {
+            self.loadingTexts()
+        }
+        else {
+            displayPokedexView(animated:false)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true;
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if UserDefaults.standard.value(forKey: "hasLoaded") == nil {
-            DispatchQueue.main.async(execute: {
-                self.loadingTexts()
-            })
-            Parser().parsePokemon()
-        }
-        
-        displayPokedexView(animated:true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -64,6 +58,11 @@ class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
         self.view.addSubview(animationTypeLabel)
         activityIndicatorView.startAnimating()
         
+        DispatchQueue.global(qos: .background).async {
+            Parser.shared.delegate = self
+            Parser.shared.parsePokemon()
+        }
+        
         var counter = 0
         self.timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {_ in
             DispatchQueue.main.async(execute: {
@@ -87,3 +86,11 @@ class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
 
 }
 
+extension LoadingScreen: ParserDelegate {
+    func didFinishParsingPokemon() {
+        DispatchQueue.main.async(execute: {
+            self.displayPokedexView(animated:true)
+        })
+
+    }
+}

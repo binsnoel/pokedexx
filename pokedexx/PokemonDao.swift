@@ -12,6 +12,7 @@ import CoreData
 class PokemonDao : NSObject {
     var pokedexCache:Array<Pokemon>
     var pokeDetailCache: Array<PokemonDetail>
+
     
     public static let shared = PokemonDao()
     
@@ -145,5 +146,8 @@ class PokemonDao : NSObject {
     func refreshPokeDetailCache() {
         self.pokeDetailCache = PokemonDao.getAllDetails()!
     }
+    
+    
+    
     
 }

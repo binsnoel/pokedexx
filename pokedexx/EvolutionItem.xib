@@ -26,7 +26,7 @@
                         <constraint firstAttribute="height" constant="58" id="9y9-z1-odG"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue Finned Basculin" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ytu-2N-NJF">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mewto" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ytu-2N-NJF">
                     <rect key="frame" x="-2" y="78" width="62" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="62" id="9Ip-ux-Wgd"/>
@@ -38,14 +38,12 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8G-0J-XO6" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
                     <rect key="frame" x="6.5" y="56" width="45" height="21"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="f58-lH-jjR"/>
                         <constraint firstAttribute="width" constant="45" id="gY6-BO-1bM"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="w8G-0J-XO6" firstAttribute="top" secondItem="h9E-d3-67R" secondAttribute="bottom" constant="-1" id="Byc-vt-ShY"/>
                 <constraint firstItem="ytu-2N-NJF" firstAttribute="top" secondItem="w8G-0J-XO6" secondAttribute="bottom" constant="1" id="KHd-bE-VUR"/>
