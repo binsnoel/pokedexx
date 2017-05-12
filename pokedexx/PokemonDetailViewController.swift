@@ -29,16 +29,13 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var lblCapsuleTypeAWidth: NSLayoutConstraint!
     @IBOutlet weak var capsuleTypeAWidth: NSLayoutConstraint!
     var selectedPokeID : Int32 = 0
+//    var pokpok: Pokemon
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getDetails()
         setupView()
-        
-        let pk = Pokemon()
-        pk.baseExp = 100
-        print(pk)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,13 +58,20 @@ class PokemonDetailViewController: UIViewController {
     }
     
     func getDetails() {
+        print(selectedPokeID)
+        
         if let index2 = PokemonDao.shared.pokeDetailCache.index(where: { $0.speciesID == selectedPokeID }) {
             let detail = PokemonDao.shared.pokeDetailCache[index2]
             
             self.pokeEntry.text = detail.desc!.condensedWhitespace
         }
         else {
-            Parser().parsePokemonDetail(byID: selectedPokeID)
+            if let index = PokemonDao.shared.pokedexCache.index(where: { $0.id == selectedPokeID }) {
+                let poke = PokemonDao.shared.pokedexCache[index]
+                
+                Parser().parsePokemonDetail(byID: poke.speciesID)
+                
+            }
         }
     }
     
@@ -103,8 +107,7 @@ class PokemonDetailViewController: UIViewController {
             self.pokeWeight.text = self.convertWeight(poke.weight)
             
             self.checkTypes()
-            
-            if let index2 = PokemonDao.shared.pokeDetailCache.index(where: { $0.speciesID == selectedPokeID }) {
+            if let index2 = PokemonDao.shared.pokeDetailCache.index(where: { $0.speciesID == poke.speciesID }) {
                 let detail = PokemonDao.shared.pokeDetailCache[index2]
                 
                 self.pokeEntry.text = detail.desc!.condensedWhitespace

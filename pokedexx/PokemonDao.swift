@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class PokemonDao : NSObject {
-    var pokedexCache:Array<Pokemon>
+    var pokedexCache: Array<Pokemon>
     var pokeDetailCache: Array<PokemonDetail>
 
     
@@ -93,12 +93,6 @@ class PokemonDao : NSObject {
         }
         return nil
     }
-    
-    
-    
-    
-    
-    
     
     
     //Pokemon Detail functions

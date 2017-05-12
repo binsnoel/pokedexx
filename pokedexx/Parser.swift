@@ -106,4 +106,54 @@ class Parser{
         }
     }
 
+    func parseAbility() {
+        do {
+            let path = Bundle.main.path(forResource: "abilities", ofType: "csv")
+            let abilities = try CSV(contentsOfURL: path!)
+            
+//            let detail = abilities.rows.filter{
+//                return $0["species_id"] == String(1) && $0["version_id"] == "1" && $0["language_id"] == "9"
+//            }
+//            
+//            if detail.count > 0 {
+//                let flavor_text = detail.first?["flavor_text"]
+//                PokemonDao.shared.addPokemonDetail(speciesID: String(1), desc: flavor_text!)
+//                PokemonDao.shared.refreshPokeDetailCache()
+//            }
+//            else{
+//                //notify UI that parsing failed and display error message
+//            }
+//            
+        }
+        catch {
+            // Error handling
+            //alertview
+        }
+    }
+    
+    
+    func parsePokemonAbilities() {
+        do {
+            let path = Bundle.main.path(forResource: "pokemon_abilities", ofType: "csv")
+            let details = try CSV(contentsOfURL: path!)
+            
+//            let detail = details.rows.filter{
+//                return $0["species_id"] == String(1) && $0["version_id"] == "1" && $0["language_id"] == "9"
+//            }
+//            
+//            if detail.count > 0 {
+//                let flavor_text = detail.first?["flavor_text"]
+//                PokemonDao.shared.addPokemonDetail(speciesID: String(1), desc: flavor_text!)
+//                PokemonDao.shared.refreshPokeDetailCache()
+//            }
+//            else{
+//                //notify UI that parsing failed and display error message
+//            }
+            
+        }
+        catch {
+            // Error handling
+            //alertview
+        }
+    }
 }
