@@ -11,7 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Abilities" customModule="pokedexx" customModuleProvider="target">
             <connections>
+                <outlet property="ability1" destination="YTg-Yc-LAQ" id="XJa-e6-9Kv"/>
+                <outlet property="ability1Height" destination="r95-Ar-T75" id="7WB-C0-TEu"/>
+                <outlet property="ability1Top" destination="Vss-gU-bhQ" id="eSV-QE-YbF"/>
+                <outlet property="ability1Width" destination="mxx-E5-EJ9" id="PZA-mW-cxb"/>
+                <outlet property="ability2" destination="qEl-GM-la3" id="lIq-wQ-L6A"/>
+                <outlet property="ability3" destination="j4g-wR-ihX" id="4TF-NQ-In0"/>
                 <outlet property="innerView" destination="Ng7-ET-NgD" id="gRH-La-QGR"/>
+                <outlet property="lblOr" destination="5N7-rc-ylb" id="J2I-Bl-HOg"/>
                 <outlet property="outerView" destination="SV2-hJ-cIx" id="tFs-9U-rUD"/>
                 <outlet property="view" destination="SV2-hJ-cIx" id="uav-ge-5RO"/>
             </connections>
@@ -39,9 +46,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTg-Yc-LAQ" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
-                                    <rect key="frame" x="8" y="8" width="304" height="21"/>
+                                    <rect key="frame" x="8" y="8" width="139" height="21"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="mxx-E5-EJ9"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="139" id="mxx-E5-EJ9"/>
                                         <constraint firstAttribute="height" constant="21" id="r95-Ar-T75"/>
                                     </constraints>
                                 </view>
@@ -52,6 +59,23 @@
                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="144" id="hw2-Cp-vYg"/>
                                     </constraints>
                                 </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5N7-rc-ylb">
+                                    <rect key="frame" x="152" y="8" width="16" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="AoC-s1-PEZ"/>
+                                        <constraint firstAttribute="width" constant="16" id="Bh9-TT-hnH"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEl-GM-la3" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
+                                    <rect key="frame" x="173" y="8" width="139" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="139" id="5ec-QL-9rG"/>
+                                        <constraint firstAttribute="height" constant="21" id="oYD-VF-3Ng"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -59,14 +83,24 @@
                                 <constraint firstItem="YTg-Yc-LAQ" firstAttribute="leading" secondItem="Ng7-ET-NgD" secondAttribute="leading" constant="8" id="6rQ-gG-rcP"/>
                                 <constraint firstItem="6cN-17-VQP" firstAttribute="top" secondItem="j4g-wR-ihX" secondAttribute="bottom" constant="13" id="9zI-L2-T6z"/>
                                 <constraint firstAttribute="bottom" secondItem="6cN-17-VQP" secondAttribute="bottom" constant="-6" id="DpB-ed-dPn"/>
+                                <constraint firstItem="5N7-rc-ylb" firstAttribute="leading" secondItem="YTg-Yc-LAQ" secondAttribute="trailing" constant="5" id="Fxj-0g-8kR"/>
+                                <constraint firstItem="qEl-GM-la3" firstAttribute="leading" secondItem="5N7-rc-ylb" secondAttribute="trailing" constant="5" id="JwF-Yy-AeC"/>
                                 <constraint firstItem="j4g-wR-ihX" firstAttribute="top" secondItem="YTg-Yc-LAQ" secondAttribute="bottom" constant="8" id="LD9-3J-2ef"/>
-                                <constraint firstAttribute="trailing" secondItem="YTg-Yc-LAQ" secondAttribute="trailing" constant="8" id="Q7Z-1v-5VM"/>
                                 <constraint firstItem="j4g-wR-ihX" firstAttribute="leading" secondItem="Ng7-ET-NgD" secondAttribute="leading" constant="8" id="RLX-Bt-xzb"/>
                                 <constraint firstItem="YTg-Yc-LAQ" firstAttribute="top" secondItem="Ng7-ET-NgD" secondAttribute="top" constant="8" id="Vss-gU-bhQ"/>
+                                <constraint firstItem="5N7-rc-ylb" firstAttribute="top" secondItem="Ng7-ET-NgD" secondAttribute="top" constant="8" id="Yes-SC-pll"/>
                                 <constraint firstItem="6cN-17-VQP" firstAttribute="centerX" secondItem="Ng7-ET-NgD" secondAttribute="centerX" id="ZsJ-jS-YS7"/>
+                                <constraint firstItem="j4g-wR-ihX" firstAttribute="centerY" secondItem="Ng7-ET-NgD" secondAttribute="centerY" id="bjK-Bm-4to"/>
+                                <constraint firstAttribute="trailing" secondItem="qEl-GM-la3" secondAttribute="trailing" priority="750" constant="8" id="dRD-gm-avC"/>
                                 <constraint firstAttribute="trailing" secondItem="j4g-wR-ihX" secondAttribute="trailing" constant="8" id="kxq-eT-732"/>
                                 <constraint firstAttribute="height" constant="79" id="q6D-JW-qpk"/>
+                                <constraint firstItem="qEl-GM-la3" firstAttribute="top" secondItem="Ng7-ET-NgD" secondAttribute="top" constant="8" id="u9S-Zp-oor"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="bjK-Bm-4to"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.014482318940000001" green="0.71465411729999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>

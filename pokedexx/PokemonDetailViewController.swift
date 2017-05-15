@@ -13,36 +13,38 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet var myView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pokeImage: UIImageView!
-    @IBOutlet weak var capsuleID: Capsule!
     @IBOutlet weak var pokeName: UILabel!
     @IBOutlet weak var pokeHeight: UILabel!
     @IBOutlet weak var pokeWeight: UILabel!
     @IBOutlet weak var pokeEntry: UITextView!
+    
+    @IBOutlet weak var capsuleID: Capsule!
     @IBOutlet weak var capsuleSpecies: Capsule!
     @IBOutlet weak var capsuleTypeB: Capsule!
     @IBOutlet weak var capsuleTypeA: Capsule!
     @IBOutlet weak var lblCapsuleTypeB: UILabel!
     @IBOutlet weak var lblCapsuleTypeA: UILabel!
     
+    @IBOutlet weak var abilitiesView: Abilities!
+    
     @IBOutlet weak var lblCapsuleTypeATrail: NSLayoutConstraint!
     @IBOutlet weak var capsuleTpyeATrail: NSLayoutConstraint!
     @IBOutlet weak var lblCapsuleTypeAWidth: NSLayoutConstraint!
     @IBOutlet weak var capsuleTypeAWidth: NSLayoutConstraint!
+    
     var selectedPokeID : Int32 = 0
-//    var pokpok: Pokemon
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getDetails()
-        setupView()
+        setupEntryView()
+        setupAbilitiesView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         let scrollSize = CGSize(width: myView.frame.width,height: myView.frame.height)
         scrollView.contentSize = scrollSize
-
     }
     
     override func viewDidLayoutSubviews() {
@@ -56,6 +58,8 @@ class PokemonDetailViewController: UIViewController {
         let aspectRatioTextViewConstraint = NSLayoutConstraint(item: self.pokeEntry, attribute: .height, relatedBy: .equal, toItem: self.pokeEntry, attribute: .width, multiplier: self.pokeEntry.bounds.height/self.pokeEntry.bounds.width, constant: 1)
         self.pokeEntry.addConstraint(aspectRatioTextViewConstraint)
     }
+    
+    // MARK: - View setup functions
     
     func getDetails() {
         print(selectedPokeID)
@@ -75,7 +79,7 @@ class PokemonDetailViewController: UIViewController {
         }
     }
     
-    func setupView() {
+    func setupEntryView() {
         if let index = PokemonDao.shared.pokedexCache.index(where: { $0.id == selectedPokeID }) {
             let poke = PokemonDao.shared.pokedexCache[index]
             
@@ -113,9 +117,19 @@ class PokemonDetailViewController: UIViewController {
                 self.pokeEntry.text = detail.desc!.condensedWhitespace
             }
             
- 
         }
     }
+    
+    func setupAbilitiesView() {
+        let selectedPokeAbilities = PokemonDao.shared.pokemonAbilities.filter { pk in
+            return (pk.poke_id == selectedPokeID)
+        }
+        
+        print(selectedPokeAbilities)
+        self.abilitiesView.initializeView(withAbilities: selectedPokeAbilities)
+    }
+    
+    // MARK: - Helper functions
     
     func checkTypes() {
         

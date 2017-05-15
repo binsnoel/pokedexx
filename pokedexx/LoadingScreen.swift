@@ -60,7 +60,9 @@ class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
         
         DispatchQueue.global(qos: .background).async {
             Parser.shared.delegate = self
-            Parser.shared.parsePokemon()
+            Parser.shared.parseAbility()
+            Parser.shared.parsePokemonAbilities()
+            Parser.shared.parsePokemon() //end of this query is the trigger to transfer to new screen
         }
         
         var counter = 0

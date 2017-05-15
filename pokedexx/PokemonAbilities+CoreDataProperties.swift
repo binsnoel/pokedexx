@@ -16,7 +16,7 @@ extension PokemonAbilities {
         return NSFetchRequest<PokemonAbilities>(entityName: "PokemonAbilities")
     }
 
-    @NSManaged public var abilitiy_id: Int32
+    @NSManaged public var ability_id: Int32
     @NSManaged public var desc: String?
     @NSManaged public var poke_id: Int32
     @NSManaged public var isHidden: Bool

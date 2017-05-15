@@ -17,7 +17,6 @@
 		3D202FBF1EC0C67F007450B9 /* Pokemon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D202FBB1EC0C67F007450B9 /* Pokemon+CoreDataProperties.swift */; };
 		3D202FC01EC0C67F007450B9 /* PokemonDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D202FBC1EC0C67F007450B9 /* PokemonDetail+CoreDataClass.swift */; };
 		3D202FC11EC0C67F007450B9 /* PokemonDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D202FBD1EC0C67F007450B9 /* PokemonDetail+CoreDataProperties.swift */; };
-		3D202FC41EC20A4D007450B9 /* PokemonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D202FC31EC20A4D007450B9 /* PokemonHandler.swift */; };
 		3D202FC61EC6022F007450B9 /* pokemon_abilities.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3D202FC51EC6022E007450B9 /* pokemon_abilities.csv */; };
 		3D202FC81EC61CD2007450B9 /* abilities.csv in Resources */ = {isa = PBXBuildFile; fileRef = 3D202FC71EC61CD2007450B9 /* abilities.csv */; };
 		3D202FD51EC61EE1007450B9 /* PokemonAbilities+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D202FD11EC61EE1007450B9 /* PokemonAbilities+CoreDataClass.swift */; };
@@ -69,7 +68,6 @@
 		3D202FBB1EC0C67F007450B9 /* Pokemon+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pokemon+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3D202FBC1EC0C67F007450B9 /* PokemonDetail+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PokemonDetail+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3D202FBD1EC0C67F007450B9 /* PokemonDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PokemonDetail+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3D202FC31EC20A4D007450B9 /* PokemonHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonHandler.swift; sourceTree = "<group>"; };
 		3D202FC51EC6022E007450B9 /* pokemon_abilities.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pokemon_abilities.csv; path = ../../pokemon_abilities.csv; sourceTree = "<group>"; };
 		3D202FC71EC61CD2007450B9 /* abilities.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = abilities.csv; sourceTree = "<group>"; };
 		3D202FD11EC61EE1007450B9 /* PokemonAbilities+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PokemonAbilities+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -224,7 +222,6 @@
 			children = (
 				3D95DF841E90E51D008B72EC /* pokedexx.xcdatamodeld */,
 				3D95DF991E90EB0D008B72EC /* PokemonDao.swift */,
-				3D202FC31EC20A4D007450B9 /* PokemonHandler.swift */,
 				3D202FD11EC61EE1007450B9 /* PokemonAbilities+CoreDataClass.swift */,
 				3D202FD31EC61EE1007450B9 /* Ability+CoreDataClass.swift */,
 				3D202FBA1EC0C67F007450B9 /* Pokemon+CoreDataClass.swift */,
@@ -458,7 +455,6 @@
 				3D0E67141E97E91800C9F07E /* PokedexTableViewCell.swift in Sources */,
 				3D60CB3F1E9A1B8D009C565A /* DataManager.swift in Sources */,
 				3D2281701EBDF78500B440DF /* Abilities.swift in Sources */,
-				3D202FC41EC20A4D007450B9 /* PokemonHandler.swift in Sources */,
 				3D95DF971E90E708008B72EC /* Constants.swift in Sources */,
 				3DF326C11E98E1DC0020836F /* PokemonDetailViewController.swift in Sources */,
 				3D2281751EC0A1E100B440DF /* MegaEvolution.swift in Sources */,

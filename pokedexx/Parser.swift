@@ -111,19 +111,9 @@ class Parser{
             let path = Bundle.main.path(forResource: "abilities", ofType: "csv")
             let abilities = try CSV(contentsOfURL: path!)
             
-//            let detail = abilities.rows.filter{
-//                return $0["species_id"] == String(1) && $0["version_id"] == "1" && $0["language_id"] == "9"
-//            }
-//            
-//            if detail.count > 0 {
-//                let flavor_text = detail.first?["flavor_text"]
-//                PokemonDao.shared.addPokemonDetail(speciesID: String(1), desc: flavor_text!)
-//                PokemonDao.shared.refreshPokeDetailCache()
-//            }
-//            else{
-//                //notify UI that parsing failed and display error message
-//            }
-//            
+            for row in abilities.rows {
+                PokemonDao.shared.addAbility(ID: Int32(row["id"]!)!, Name: row["identifier"]!)
+            }
         }
         catch {
             // Error handling
@@ -135,20 +125,31 @@ class Parser{
     func parsePokemonAbilities() {
         do {
             let path = Bundle.main.path(forResource: "pokemon_abilities", ofType: "csv")
-            let details = try CSV(contentsOfURL: path!)
+            let poke_abilities = try CSV(contentsOfURL: path!)
             
-//            let detail = details.rows.filter{
-//                return $0["species_id"] == String(1) && $0["version_id"] == "1" && $0["language_id"] == "9"
-//            }
-//            
-//            if detail.count > 0 {
-//                let flavor_text = detail.first?["flavor_text"]
-//                PokemonDao.shared.addPokemonDetail(speciesID: String(1), desc: flavor_text!)
-//                PokemonDao.shared.refreshPokeDetailCache()
-//            }
-//            else{
-//                //notify UI that parsing failed and display error message
-//            }
+            let path2 = Bundle.main.path(forResource: "abilities", ofType: "csv")
+            let abilities = try CSV(contentsOfURL: path2!)
+            
+            for row in poke_abilities.rows {
+                
+                let desc = abilities.rows.filter{
+                    return $0["id"] == row["ability_id"]
+                }
+                var gen = ""
+                if let genu = desc.first?["identifier"] {
+                    gen = genu
+                }
+
+                let hdn = (row["is_hidden"] == "1") ? true : false
+                
+                PokemonDao.shared.addPokemonAbility(poke_id: Int32(row["pokemon_id"]!)!,
+                                                    ability_id: Int32(row["ability_id"]!)!,
+                                                    desc: gen,
+                                                    isHidden: hdn,
+                                                    slot: Int32(row["slot"]!)!)
+            }
+            
+            PokemonDao.shared.refreshPokeAbilitiesCache()
             
         }
         catch {

@@ -70,19 +70,34 @@ import UIKit
             self.view.layer.borderWidth = 1
             self.view.layer.borderColor = UIColor.darkGray.cgColor
             break
-        case .Ability:
-            self.capsuleLabel.textColor = UIColor.black
-            self.view.layer.borderWidth = 1
-            self.view.layer.borderColor = UIColor.darkGray.cgColor
-            view.layer.cornerRadius = 5
-            break
-        case .AbilityHidden:
-            self.capsuleLabel.textColor = UIColor.black
-            self.view.layer.borderWidth = 1
-            self.view.layer.borderColor = UIColor.darkGray.cgColor
-            view.layer.cornerRadius = 5
-            self.hiddenView.isHidden = false
+        default:
             break
         }
+    }
+    
+    func setCapsuleAbilityView(type: Enums.CapsuleType, ability: String) {
+        self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
+        self.hiddenView.isHidden = true
+        self.view.backgroundColor = UIColor.white
+        self.capsuleLabel.text = Common.formatName(ability)
+        
+        switch type {
+            case .Ability:
+                self.capsuleLabel.textColor = UIColor.black
+                self.view.layer.borderWidth = 1
+                self.view.layer.borderColor = UIColor.darkGray.cgColor
+                view.layer.cornerRadius = 5
+                break
+            case .AbilityHidden:
+                self.capsuleLabel.textColor = UIColor.black
+                self.view.layer.borderWidth = 1
+                self.view.layer.borderColor = UIColor.darkGray.cgColor
+                view.layer.cornerRadius = 5
+                self.hiddenView.isHidden = false
+                break
+            default:
+                break
+        }
+
     }
 }
