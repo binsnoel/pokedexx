@@ -47,4 +47,8 @@ import UIKit
         return view
     }
     
+    func setup(_ chain: [Pokemon]) {
+        
+    }
+    
 }

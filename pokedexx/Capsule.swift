@@ -13,7 +13,7 @@ import UIKit
     var view: UIView!
     @IBOutlet weak var capsuleLabel: UILabel!
     @IBOutlet weak var info: UIImageView!
-    @IBOutlet weak var hiddenView: UIView!
+    @IBOutlet weak var lblHidden: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,6 +36,14 @@ import UIKit
         // Make the view stretch with containing view
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         
+        //rounded left side of "hidden" label
+        let path = UIBezierPath(roundedRect:self.lblHidden.bounds,
+                                byRoundingCorners:[.topLeft, .bottomLeft],
+                                cornerRadii: CGSize(width: 5, height:  5))
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = path.cgPath
+        self.lblHidden.layer.mask = maskLayer
+        
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         addSubview(view)
     }
@@ -52,7 +60,7 @@ import UIKit
     func setCapsuleView(type: Enums.CapsuleType, pokemonType: Enums.PokemonType = Enums.PokemonType.None) {
         
         self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
-        self.hiddenView.isHidden = true
+        self.lblHidden.isHidden = true
         self.view.backgroundColor = UIColor.white
         
         switch type {
@@ -75,29 +83,44 @@ import UIKit
         }
     }
     
-    func setCapsuleAbilityView(type: Enums.CapsuleType, ability: String) {
+    func setCapsuleAbilityView(type: Enums.CapsuleType, ability: String, pokemonType: Enums.PokemonType) {
         self.capsuleLabel.font = self.capsuleLabel.font.withSize(10)
-        self.hiddenView.isHidden = true
+        self.lblHidden.isHidden = true
+        self.info.isHidden = false
         self.view.backgroundColor = UIColor.white
         self.capsuleLabel.text = Common.formatName(ability)
         
         switch type {
             case .Ability:
                 self.capsuleLabel.textColor = UIColor.black
+                self.setAbilityCapsuleTextColor(pokemonType: pokemonType)
                 self.view.layer.borderWidth = 1
-                self.view.layer.borderColor = UIColor.darkGray.cgColor
+                self.view.layer.borderColor = Common.getTypeColor(pokemonType).cgColor
                 view.layer.cornerRadius = 5
+                self.view.backgroundColor = Common.getTypeColor(pokemonType)
                 break
             case .AbilityHidden:
+                
                 self.capsuleLabel.textColor = UIColor.black
                 self.view.layer.borderWidth = 1
-                self.view.layer.borderColor = UIColor.darkGray.cgColor
+                self.view.layer.borderColor = Common.getTypeColor(pokemonType).cgColor
                 view.layer.cornerRadius = 5
-                self.hiddenView.isHidden = false
+                self.lblHidden.isHidden = false
+                self.lblHidden.backgroundColor = Common.getTypeColor(pokemonType)
+                self.lblHidden.textColor = UIColor.black
+                self.lblHidden.layer.borderWidth = 1
+                self.lblHidden.layer.borderColor = Common.getTypeColor(pokemonType).cgColor
                 break
             default:
                 break
         }
 
+    }
+    
+    func setAbilityCapsuleTextColor(pokemonType: Enums.PokemonType){
+        if pokemonType == .Dark || pokemonType == .Fighting || pokemonType == .Ghost
+         || pokemonType == .Poison{
+            self.capsuleLabel.textColor = UIColor.white
+        }
     }
 }

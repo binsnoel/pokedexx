@@ -12,48 +12,55 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Capsule" customModule="pokedexx" customModuleProvider="target">
             <connections>
                 <outlet property="capsuleLabel" destination="2GP-f4-W1u" id="181-cw-2ZH"/>
-                <outlet property="hiddenView" destination="yMs-6G-dVz" id="B1k-Zn-eAy"/>
                 <outlet property="info" destination="wpw-dv-wlK" id="0VV-Do-CCJ"/>
+                <outlet property="lblHidden" destination="7oG-cq-8X6" id="BYH-Ho-jC0"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="80" height="21"/>
+            <rect key="frame" x="0.0" y="0.0" width="224" height="21"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NORMAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GP-f4-W1u">
-                    <rect key="frame" x="8" y="0.0" width="64" height="21"/>
+                    <rect key="frame" x="8" y="0.0" width="208" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="ElG-gB-AsV"/>
-                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="64" id="alH-Rp-bpA"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="alH-Rp-bpA"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info" translatesAutoresizingMaskIntoConstraints="NO" id="wpw-dv-wlK">
-                    <rect key="frame" x="61" y="3" width="14" height="14"/>
+                    <rect key="frame" x="202" y="3.5" width="14" height="14"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="14" id="BUX-dp-a62"/>
                         <constraint firstAttribute="width" constant="14" id="IZP-2s-03d"/>
                     </constraints>
                 </imageView>
-                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yMs-6G-dVz">
-                    <rect key="frame" x="0.0" y="0.0" width="28" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidden" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oG-cq-8X6">
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="HfX-W5-0W2"/>
+                        <constraint firstAttribute="width" constant="50" id="qaP-BQ-OOg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="2GP-f4-W1u" secondAttribute="trailing" constant="8" id="36X-cS-wmr"/>
                 <constraint firstItem="wpw-dv-wlK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="E9x-NM-DSs"/>
+                <constraint firstItem="7oG-cq-8X6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ik5-xe-19e"/>
                 <constraint firstItem="2GP-f4-W1u" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JQa-aR-PPX"/>
                 <constraint firstItem="2GP-f4-W1u" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="cU6-9D-avn"/>
-                <constraint firstAttribute="trailing" secondItem="wpw-dv-wlK" secondAttribute="trailing" constant="5" id="qnk-d9-CP2"/>
+                <constraint firstItem="7oG-cq-8X6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mFM-C0-EKI"/>
+                <constraint firstAttribute="trailing" secondItem="wpw-dv-wlK" secondAttribute="trailing" constant="8" id="qnk-d9-CP2"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-84" y="-186.5"/>
+            <point key="canvasLocation" x="-109" y="-189"/>
         </view>
     </objects>
     <resources>

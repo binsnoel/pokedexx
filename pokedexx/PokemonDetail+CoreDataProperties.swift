@@ -19,5 +19,7 @@ extension PokemonDetail {
     @NSManaged public var attributej: Int32
     @NSManaged public var desc: String?
     @NSManaged public var speciesID: Int32
+    @NSManaged public var evolution_chain: Int32
+    @NSManaged public var evolve_from_speciesID: Int32
 
 }

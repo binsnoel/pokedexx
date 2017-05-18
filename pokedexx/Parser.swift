@@ -85,20 +85,32 @@ class Parser{
         do {
             let path = Bundle.main.path(forResource: "pokemon_species_flavor_text", ofType: "csv")
             let details = try CSV(contentsOfURL: path!)
-            
+            var flavor_text : String?
             let detail = details.rows.filter{
-                return $0["species_id"] == String(byID) && $0["version_id"] == "1" && $0["language_id"] == "9"
+                return $0["species_id"] == String(byID) && $0["language_id"] == "9"
             }
             
             if detail.count > 0 {
-                let flavor_text = detail.first?["flavor_text"]
-                PokemonDao.shared.addPokemonDetail(speciesID: byID, desc: flavor_text!)
-                PokemonDao.shared.refreshPokeDetailCache()
+                flavor_text = detail.first?["flavor_text"]!
             }
-            else{
-                //notify UI that parsing failed and display error message
+            else {
+                flavor_text = ""
             }
             
+            let path1 = Bundle.main.path(forResource: "pokemon_species", ofType: "csv")
+            let pokeSpecies = try CSV(contentsOfURL: path1!)
+            let specs = pokeSpecies.rows.filter{
+                return $0["id"] == String(byID)
+            }
+            let echain = specs.first?["evolution_chain_id"]!
+            let efrom = specs.first?["evolves_from_species_id"]! == "" ? "0" : specs.first?["evolves_from_species_id"]!
+            
+            PokemonDao.shared.addPokemonDetail(speciesID: byID,
+                                               desc: flavor_text!,
+                                               evoChain:Int32(echain!)!,
+                                               evoFrom: Int32(efrom!)!)
+            
+            PokemonDao.shared.refreshPokeDetailCache()
         }
         catch {
             // Error handling

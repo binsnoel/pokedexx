@@ -17,7 +17,7 @@ extension UIColor {
     static let pkFlyingColor = UIColor(netHex: 0xa890f0)
     static let pkPoisonColor = UIColor(netHex: 0xa040a0)
     static let pkGroundColor = UIColor(netHex: 0xe0c068)
-    static let pkRockColor = UIColor(netHex: 0x4DA664)
+    static let pkRockColor = UIColor(netHex: 0xb8a038)
     static let pkBugColor = UIColor(netHex: 0xa8b820)
     static let pkGhostColor = UIColor(netHex: 0x705898)
     static let pkSteelColor = UIColor(netHex: 0xb8b8d0)

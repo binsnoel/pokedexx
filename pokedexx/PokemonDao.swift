@@ -101,16 +101,22 @@ class PokemonDao : NSObject {
     // MARK: - Pokemon Detail functions
     
     func addPokemonDetail(speciesID:Int32,
-                          desc:String) {
+                          desc:String,
+                          evoChain: Int32,
+                          evoFrom: Int32) {
         
         if let p = getPokemonDetail(bySpeciesId: speciesID) {
             p.desc = desc
+            p.evolution_chain = evoChain
+            p.evolve_from_speciesID = evoFrom
             print("pokemon detail \(speciesID): existing")
         } else {
             if let context = DataManager.shared.objectContext {
                 let p = PokemonDetail(context: context)
                 p.speciesID = speciesID
                 p.desc = desc
+                p.evolution_chain = evoChain
+                p.evolve_from_speciesID = evoFrom
                 try? context.save()
                 print("Added Detail \(speciesID)")
             }

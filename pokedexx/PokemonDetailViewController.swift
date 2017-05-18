@@ -33,13 +33,12 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var capsuleTypeAWidth: NSLayoutConstraint!
     
     var selectedPokeID : Int32 = 0
+//    var hasLoadedDetails = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getDetails()
-        setupEntryView()
-        setupAbilitiesView()
+        setupView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,25 +60,22 @@ class PokemonDetailViewController: UIViewController {
     
     // MARK: - View setup functions
     
-    func getDetails() {
-        print(selectedPokeID)
+    func getDetails(currentPokemon: Pokemon) {
         
-        if let index2 = PokemonDao.shared.pokeDetailCache.index(where: { $0.speciesID == selectedPokeID }) {
-            let detail = PokemonDao.shared.pokeDetailCache[index2]
+        let deets = currentPokemon.getDetails()
+        if deets != nil {
+            self.pokeEntry.text = deets?.desc!.condensedWhitespace
             
-            self.pokeEntry.text = detail.desc!.condensedWhitespace
+            //setup evolution
+            
+            self.evolutionView.setup(currentPokemon.getEvolutionChain(chainID: (deets?.evolution_chain)!))
+            
         }
-        else {
-            if let index = PokemonDao.shared.pokedexCache.index(where: { $0.id == selectedPokeID }) {
-                let poke = PokemonDao.shared.pokedexCache[index]
-                
-                Parser().parsePokemonDetail(byID: poke.speciesID)
-                
-            }
-        }
+        
     }
     
-    func setupEntryView() {
+    
+    func setupView() {
         if let index = PokemonDao.shared.pokedexCache.index(where: { $0.id == selectedPokeID }) {
             let poke = PokemonDao.shared.pokedexCache[index]
             
@@ -99,6 +95,9 @@ class PokemonDetailViewController: UIViewController {
             if let a = Int(poke.typeA!){
                 print(Enums.PokemonType(rawValue: a)!)
                 capsuleTypeA.setCapsuleView(type: Enums.CapsuleType.PokeType, pokemonType: Enums.PokemonType(rawValue: a)!)
+                
+                //setup Abilities View - Pass the Primary Type of pokemon
+                setupAbilitiesView(typeA: Enums.PokemonType(rawValue: a)!)
             }
             if let b = Int(poke.typeB!){
                 capsuleTypeB.setCapsuleView(type: Enums.CapsuleType.PokeType, pokemonType: Enums.PokemonType(rawValue: b)!)
@@ -111,22 +110,18 @@ class PokemonDetailViewController: UIViewController {
             self.pokeWeight.text = self.convertWeight(poke.weight)
             
             self.checkTypes()
-            if let index2 = PokemonDao.shared.pokeDetailCache.index(where: { $0.speciesID == poke.speciesID }) {
-                let detail = PokemonDao.shared.pokeDetailCache[index2]
-                
-                self.pokeEntry.text = detail.desc!.condensedWhitespace
-            }
+            
+            getDetails(currentPokemon: poke)
             
         }
     }
     
-    func setupAbilitiesView() {
+    func setupAbilitiesView(typeA: Enums.PokemonType) {
         let selectedPokeAbilities = PokemonDao.shared.pokemonAbilities.filter { pk in
             return (pk.poke_id == selectedPokeID)
         }
         
-        print(selectedPokeAbilities)
-        self.abilitiesView.initializeView(withAbilities: selectedPokeAbilities)
+        self.abilitiesView.initializeView(withAbilities: selectedPokeAbilities, pokemonType: typeA )
     }
     
     // MARK: - Helper functions
