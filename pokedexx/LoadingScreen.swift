@@ -62,6 +62,7 @@ class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
             Parser.shared.delegate = self
             Parser.shared.parseAbility()
             Parser.shared.parsePokemonAbilities()
+            Parser.shared.parsePokemonDetail()
             Parser.shared.parsePokemon() //end of this query is the trigger to transfer to new screen
         }
         

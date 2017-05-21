@@ -123,6 +123,16 @@ class PokemonDao : NSObject {
         }
     }
     
+    func addPokeEntry(speciesID: Int32, desc: String) {
+        if let p = getPokemonDetail(bySpeciesId: speciesID) {
+            p.desc = desc
+            print("pokemon detail \(speciesID): existing")
+        } else {
+            print("add poke entry error")
+        }
+
+    }
+    
     func getPokemonDetail(bySpeciesId: Int32) -> PokemonDetail? {
         
         if let context = DataManager.shared.objectContext {

@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvolutionItem" customModule="pokedexx" customModuleProvider="target">
             <connections>
+                <outlet property="capsuleID" destination="w8G-0J-XO6" id="15z-AL-aZU"/>
+                <outlet property="image" destination="h9E-d3-67R" id="bW8-mr-lcW"/>
+                <outlet property="lblName" destination="ytu-2N-NJF" id="joT-v8-eKG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="PX0-Xb-frn"/>
             </connections>
         </placeholder>
@@ -26,10 +29,10 @@
                         <constraint firstAttribute="height" constant="58" id="9y9-z1-odG"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mewto" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ytu-2N-NJF">
-                    <rect key="frame" x="-2" y="78" width="62" height="25"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mewto" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ytu-2N-NJF">
+                    <rect key="frame" x="4" y="78" width="50" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="62" id="9Ip-ux-Wgd"/>
+                        <constraint firstAttribute="width" constant="50" id="9Ip-ux-Wgd"/>
                         <constraint firstAttribute="height" constant="25" id="ZcG-NT-Vbc"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -47,12 +50,13 @@
             <constraints>
                 <constraint firstItem="w8G-0J-XO6" firstAttribute="top" secondItem="h9E-d3-67R" secondAttribute="bottom" constant="-1" id="Byc-vt-ShY"/>
                 <constraint firstItem="ytu-2N-NJF" firstAttribute="top" secondItem="w8G-0J-XO6" secondAttribute="bottom" constant="1" id="KHd-bE-VUR"/>
+                <constraint firstAttribute="trailing" secondItem="ytu-2N-NJF" secondAttribute="trailing" constant="4" id="OTi-dm-YNX"/>
                 <constraint firstItem="h9E-d3-67R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QBz-PF-7qj"/>
                 <constraint firstItem="w8G-0J-XO6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Y4X-ge-iWp"/>
                 <constraint firstItem="h9E-d3-67R" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Zzt-66-S8C"/>
                 <constraint firstAttribute="bottom" secondItem="ytu-2N-NJF" secondAttribute="bottom" id="cQ8-a7-GoP"/>
+                <constraint firstItem="ytu-2N-NJF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="kRD-mU-3DB"/>
                 <constraint firstAttribute="bottom" secondItem="h9E-d3-67R" secondAttribute="bottom" constant="46" id="qiE-yF-uW8"/>
-                <constraint firstItem="ytu-2N-NJF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wAU-tL-Vqe"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

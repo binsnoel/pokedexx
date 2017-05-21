@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvolutionChain" customModule="pokedexx" customModuleProvider="target">
             <connections>
+                <outlet property="chain1" destination="ZYf-am-pe8" id="TZF-oH-CQj"/>
+                <outlet property="chain2" destination="sVY-oe-uk8" id="itc-0n-bVp"/>
+                <outlet property="chain3" destination="AQt-Tw-aW5" id="TZu-a5-upt"/>
                 <outlet property="innerView" destination="IgD-SB-WdQ" id="nao-5R-H7o"/>
                 <outlet property="view" destination="iN0-l3-epB" id="rcj-OJ-kZl"/>
             </connections>
@@ -83,7 +86,7 @@
                             <rect key="frame" x="253" y="23" width="26" height="77"/>
                             <color key="backgroundColor" red="0.014482318940000001" green="0.71465411729999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lvl 90" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOg-Tm-w2q">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lvl 90" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOg-Tm-w2q">
                             <rect key="frame" x="84.5" y="73" width="42" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="42" id="afr-IZ-iF4"/>
@@ -93,7 +96,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lvl 90" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLH-Wj-yuI">
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lvl 90" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLH-Wj-yuI">
                             <rect key="frame" x="219" y="73" width="42" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="dXt-cg-Aix"/>

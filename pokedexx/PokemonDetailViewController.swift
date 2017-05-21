@@ -10,6 +10,7 @@ import UIKit
 
 class PokemonDetailViewController: UIViewController {
 
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet var myView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pokeImage: UIImageView!
@@ -26,7 +27,7 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var lblCapsuleTypeA: UILabel!
     
     @IBOutlet weak var abilitiesView: Abilities!
-    
+    @IBOutlet weak var evolutionView: EvolutionChain!
     @IBOutlet weak var lblCapsuleTypeATrail: NSLayoutConstraint!
     @IBOutlet weak var capsuleTpyeATrail: NSLayoutConstraint!
     @IBOutlet weak var lblCapsuleTypeAWidth: NSLayoutConstraint!
@@ -41,9 +42,14 @@ class PokemonDetailViewController: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        //none
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         let scrollSize = CGSize(width: myView.frame.width,height: myView.frame.height)
         scrollView.contentSize = scrollSize
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -64,18 +70,16 @@ class PokemonDetailViewController: UIViewController {
         
         let deets = currentPokemon.getDetails()
         if deets != nil {
-            self.pokeEntry.text = deets?.desc!.condensedWhitespace
-            
             //setup evolution
-            
-            self.evolutionView.setup(currentPokemon.getEvolutionChain(chainID: (deets?.evolution_chain)!))
-            
+            self.evolutionView.delegate = self
+            self.evolutionView.setup(currentPokemon.getEvolutionChain(chainID: (deets?.evolution_chain)!)!, current: currentPokemon)
+            self.pokeEntry.text = currentPokemon.getPokeEntry().condensedWhitespace
         }
-        
     }
     
     
     func setupView() {
+        
         if let index = PokemonDao.shared.pokedexCache.index(where: { $0.id == selectedPokeID }) {
             let poke = PokemonDao.shared.pokedexCache[index]
             
@@ -159,5 +163,22 @@ class PokemonDetailViewController: UIViewController {
         let kg = Double(weight) * 0.1
         let lbs = Double(round(100*(kg * 2.20))/100)
         return "\(lbs) lbs (" + String(kg) + " kg)"
+    }
+}
+
+
+extension PokemonDetailViewController : EvolutionChainDelegate {
+    func didTapPokemon(id: Int32) {
+//        DispatchQueue.main.async(execute: {
+//            self.displayPokedexView(animated:true)
+//        })
+        print("tapped id \(id)")
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "pokemonDetail") as! PokemonDetailViewController
+        nextViewController.selectedPokeID = id
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

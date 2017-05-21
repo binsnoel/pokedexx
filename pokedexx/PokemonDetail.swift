@@ -17,7 +17,7 @@ public class PokemonDetail: NSManagedObject {
             return PokemonDao.shared.pokeDetailCache[index2]
         }
         else {
-            Parser().parsePokemonDetail(byID: speciesID)
+//            Parser().parsePokemonDetail(byID: speciesID)
             return nil
         }
     }

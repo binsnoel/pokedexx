@@ -8,15 +8,23 @@
 
 import UIKit
 
-@IBDesignable class EvolutionItem: UIView {
-
+@IBDesignable class BaseStats: UIView {
     
-    @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var capsuleID: Capsule!
-    @IBOutlet weak var image: UIImageView!
+    
+    @IBOutlet weak var total: UILabel!
+    @IBOutlet weak var maxSpeed: UILabel!
+    @IBOutlet weak var maxSpDef: UILabel!
+    @IBOutlet weak var maxSpAtk: UILabel!
+    @IBOutlet weak var maxDef: UILabel!
+    @IBOutlet weak var maxAtk: UILabel!
+    @IBOutlet weak var maxHP: UILabel!
+    @IBOutlet weak var minSpeed: UILabel!
+    @IBOutlet weak var minSpDef: UILabel!
+    @IBOutlet weak var minSpAtk: UILabel!
+    @IBOutlet weak var minDef: UILabel!
+    @IBOutlet weak var minAtk: UILabel!
+    @IBOutlet weak var minHP: UILabel!
     @IBOutlet var view: UIView!
-    var isSelected = false
-    var itemID : Int32 = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,16 +41,15 @@ import UIKit
         
         // use bounds not frame or it'll be offset
         view.frame = bounds
+//        view.layer.cornerRadius = 10
+//        innerView.layer.cornerRadius = 9
         
         // Make the view stretch with containing view
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         
-        if isSelected {
-            self.view.backgroundColor = UIColor.lightGray
-        }
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         addSubview(view)
-    }
+          }
     
     func loadViewFromNib() -> UIView {
         
@@ -53,25 +60,5 @@ import UIKit
         return view
     }
     
-    func setupItem(_ item: Pokemon, current: Pokemon) {
-        self.itemID = item.id
-        
-        self.capsuleID.capsuleLabel.text = Common.format(forId: item.speciesID)
-        self.capsuleID.setCapsuleView(type: Enums.CapsuleType.ID)
-        if let pkmnImage:UIImage = UIImage(named: "\(item.id).png") {
-            self.image.image = pkmnImage
-        } else if let unknownImage:UIImage = UIImage(named:"0.png") {
-            self.image.image = unknownImage
-        }
-        
-        self.lblName.text = Common.formatName(item.name!)
-        
-        if item == current {
-            self.itemID = -1
-            self.view.layer.cornerRadius = 5
-            self.view.layer.borderWidth = 1
-            self.view.layer.borderColor = UIColor.lightGray.cgColor
-        }
-    }
 
 }

@@ -332,16 +332,16 @@
                                                     <constraint firstAttribute="height" constant="81" id="SEs-h5-2oa"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkl-Wz-koO">
-                                                <rect key="frame" x="8" y="192" width="359" height="181"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkl-Wz-koO" customClass="BaseStats" customModule="pokedexx" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="192" width="359" height="249"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="2dI-Cc-2FP"/>
-                                                    <constraint firstAttribute="height" constant="181" id="OaC-Qw-ro5"/>
+                                                    <constraint firstAttribute="height" constant="249" id="OaC-Qw-ro5"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrD-eJ-2WI" customClass="EvolutionChain" customModule="pokedexx" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="381" width="359" height="124"/>
+                                                <rect key="frame" x="8" y="449" width="359" height="124"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="124" id="yKF-DI-GXW"/>
                                                 </constraints>
@@ -404,6 +404,8 @@
                         <outlet property="capsuleTypeA" destination="4Tw-Ub-NvW" id="8kP-hp-YvJ"/>
                         <outlet property="capsuleTypeAWidth" destination="wzF-qL-Xbn" id="t5p-h0-hmK"/>
                         <outlet property="capsuleTypeB" destination="Cx5-xU-zEb" id="PNL-eR-Bke"/>
+                        <outlet property="evolutionView" destination="zrD-eJ-2WI" id="vgH-NI-QUD"/>
+                        <outlet property="headerView" destination="8Gs-nB-NND" id="y37-Je-5JY"/>
                         <outlet property="lblCapsuleTypeA" destination="KCQ-EP-WcO" id="6jb-I2-F2j"/>
                         <outlet property="lblCapsuleTypeATrail" destination="R2Z-BH-bNz" id="43g-Cv-X4c"/>
                         <outlet property="lblCapsuleTypeAWidth" destination="206-Cy-RLD" id="ruk-k3-4I5"/>

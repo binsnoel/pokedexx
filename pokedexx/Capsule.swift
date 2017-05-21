@@ -96,7 +96,7 @@ import UIKit
                 self.setAbilityCapsuleTextColor(pokemonType: pokemonType)
                 self.view.layer.borderWidth = 1
                 self.view.layer.borderColor = Common.getTypeColor(pokemonType).cgColor
-                view.layer.cornerRadius = 5
+                self.view.layer.cornerRadius = 5
                 self.view.backgroundColor = Common.getTypeColor(pokemonType)
                 break
             case .AbilityHidden:
@@ -104,7 +104,7 @@ import UIKit
                 self.capsuleLabel.textColor = UIColor.black
                 self.view.layer.borderWidth = 1
                 self.view.layer.borderColor = Common.getTypeColor(pokemonType).cgColor
-                view.layer.cornerRadius = 5
+                self.view.layer.cornerRadius = 5
                 self.lblHidden.isHidden = false
                 self.lblHidden.backgroundColor = Common.getTypeColor(pokemonType)
                 self.lblHidden.textColor = UIColor.black
