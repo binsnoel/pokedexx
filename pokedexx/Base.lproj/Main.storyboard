@@ -398,6 +398,7 @@
                     <size key="freeformSize" width="375" height="960"/>
                     <connections>
                         <outlet property="abilitiesView" destination="AXv-cR-vCu" id="IMV-l8-FzK"/>
+                        <outlet property="baseStatsView" destination="lkl-Wz-koO" id="Yst-SK-uq8"/>
                         <outlet property="capsuleID" destination="Pkn-VJ-Ouo" id="Gvc-Ed-6Kh"/>
                         <outlet property="capsuleSpecies" destination="ahs-wN-rm8" id="HLh-9e-74o"/>
                         <outlet property="capsuleTpyeATrail" destination="VnL-sa-CQE" id="FT4-xo-ZBb"/>

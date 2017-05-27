@@ -10,6 +10,7 @@ import UIKit
 
 class PokemonDetailViewController: UIViewController {
 
+    @IBOutlet weak var baseStatsView: BaseStats!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet var myView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -97,11 +98,13 @@ class PokemonDetailViewController: UIViewController {
             capsuleID.setCapsuleView(type: Enums.CapsuleType.ID)
             
             if let a = Int(poke.typeA!){
-                print(Enums.PokemonType(rawValue: a)!)
                 capsuleTypeA.setCapsuleView(type: Enums.CapsuleType.PokeType, pokemonType: Enums.PokemonType(rawValue: a)!)
                 
                 //setup Abilities View - Pass the Primary Type of pokemon
                 setupAbilitiesView(typeA: Enums.PokemonType(rawValue: a)!)
+                
+                //setup BaseStats Colors
+                self.baseStatsView.setupColor(pokemonType: Enums.PokemonType(rawValue: a)!)
             }
             if let b = Int(poke.typeB!){
                 capsuleTypeB.setCapsuleView(type: Enums.CapsuleType.PokeType, pokemonType: Enums.PokemonType(rawValue: b)!)
@@ -116,7 +119,6 @@ class PokemonDetailViewController: UIViewController {
             self.checkTypes()
             
             getDetails(currentPokemon: poke)
-            
         }
     }
     

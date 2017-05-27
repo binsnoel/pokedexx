@@ -11,6 +11,18 @@ import UIKit
 @IBDesignable class BaseStats: UIView {
     
     
+    @IBOutlet weak var lblSpeed: UILabel!
+    @IBOutlet weak var lblSpDef: UILabel!
+    @IBOutlet weak var lblSpAtk: UILabel!
+    @IBOutlet weak var lblDef: UILabel!
+    @IBOutlet weak var lblAtk: UILabel!
+    @IBOutlet weak var lblHP: UILabel!
+    @IBOutlet weak var Speed: UIView!
+    @IBOutlet weak var SpDef: UIView!
+    @IBOutlet weak var SpAtk: UIView!
+    @IBOutlet weak var Def: UIView!
+    @IBOutlet weak var Atk: UIView!
+    @IBOutlet weak var HP: UIView!
     @IBOutlet weak var total: UILabel!
     @IBOutlet weak var maxSpeed: UILabel!
     @IBOutlet weak var maxSpDef: UILabel!
@@ -49,7 +61,7 @@ import UIKit
         
         // Adding custom subview on top of our view (over any custom drawing > see note below)
         addSubview(view)
-          }
+    }
     
     func loadViewFromNib() -> UIView {
         
@@ -58,6 +70,36 @@ import UIKit
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         
         return view
+    }
+    
+    func setupColor(pokemonType: Enums.PokemonType) {
+        self.HP.backgroundColor = Common.getTypeColor(pokemonType)
+        self.Atk.backgroundColor = Common.getTypeColor(pokemonType)
+        self.Def.backgroundColor = Common.getTypeColor(pokemonType)
+        self.SpAtk.backgroundColor = Common.getTypeColor(pokemonType)
+        self.SpDef.backgroundColor = Common.getTypeColor(pokemonType)
+        self.Speed.backgroundColor = Common.getTypeColor(pokemonType)
+        
+        if pokemonType == .Dark || pokemonType == .Fighting || pokemonType == .Ghost
+            || pokemonType == .Poison{
+            
+            self.lblHP.textColor = UIColor.white
+            self.lblAtk.textColor = UIColor.white
+            self.lblDef.textColor = UIColor.white
+            self.lblSpAtk.textColor = UIColor.white
+            self.lblSpDef.textColor = UIColor.white
+            self.lblSpeed.textColor = UIColor.white
+        }
+    }
+    
+    func setupWidths() {
+        
+//        self.HP.backgroundColor = Common.getTypeColor(pokemonType)
+//        self.Atk.backgroundColor = Common.getTypeColor(pokemonType)
+//        self.Def.backgroundColor = Common.getTypeColor(pokemonType)
+//        self.SpAtk.backgroundColor = Common.getTypeColor(pokemonType)
+//        self.SpDef.backgroundColor = Common.getTypeColor(pokemonType)
+//        self.Speed.backgroundColor = Common.getTypeColor(pokemonType)
     }
     
 
