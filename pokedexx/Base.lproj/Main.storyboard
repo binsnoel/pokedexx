@@ -122,7 +122,7 @@
                         <viewControllerLayoutGuide type="bottom" id="VQe-YV-mQV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZmO-0C-XQN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="960"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1160"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Gs-nB-NND">
@@ -303,7 +303,7 @@
                                 <rect key="frame" x="0.0" y="223" width="375" height="350"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nj3-6U-f2e">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="562"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="850"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedéx Entry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD3-F6-tS2">
                                                 <rect key="frame" x="8" y="67" width="359" height="21"/>
@@ -347,6 +347,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="kD3-F6-tS2" secondAttribute="trailing" constant="8" id="1iT-C4-0HF"/>
                                             <constraint firstItem="kD3-F6-tS2" firstAttribute="width" secondItem="4uZ-iE-bTs" secondAttribute="width" id="207-MJ-Kto"/>
@@ -370,9 +371,9 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="nj3-6U-f2e" firstAttribute="height" secondItem="i73-xh-hLN" secondAttribute="height" constant="212" id="1zL-R5-0tR"/>
+                                    <constraint firstItem="nj3-6U-f2e" firstAttribute="height" secondItem="i73-xh-hLN" secondAttribute="height" constant="500" id="1zL-R5-0tR"/>
                                     <constraint firstAttribute="trailing" secondItem="nj3-6U-f2e" secondAttribute="trailing" id="H92-NL-hcr"/>
                                     <constraint firstAttribute="height" constant="350" id="KIi-mB-htE"/>
                                     <constraint firstAttribute="bottom" secondItem="nj3-6U-f2e" secondAttribute="bottom" constant="-212" id="WRX-we-Mez"/>
@@ -383,7 +384,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.25882352939999997" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="i73-xh-hLN" secondAttribute="trailing" id="3ST-GA-JSt"/>
                             <constraint firstItem="i73-xh-hLN" firstAttribute="top" secondItem="8Gs-nB-NND" secondAttribute="bottom" id="bqx-ex-UiQ"/>
@@ -395,7 +396,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="o3y-2y-cqQ"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="960"/>
+                    <size key="freeformSize" width="375" height="1160"/>
                     <connections>
                         <outlet property="abilitiesView" destination="AXv-cR-vCu" id="IMV-l8-FzK"/>
                         <outlet property="baseStatsView" destination="lkl-Wz-koO" id="Yst-SK-uq8"/>
@@ -418,6 +419,7 @@
                         <outlet property="pokeName" destination="P7Q-kD-5BF" id="NCh-8T-DpE"/>
                         <outlet property="pokeWeight" destination="C7m-zx-zbS" id="9so-qh-reN"/>
                         <outlet property="scrollView" destination="i73-xh-hLN" id="CrR-og-7Tr"/>
+                        <outlet property="scrollViewHeight" destination="KIi-mB-htE" id="PgK-UE-hHs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aU4-2s-bh0" userLabel="First Responder" sceneMemberID="firstResponder"/>

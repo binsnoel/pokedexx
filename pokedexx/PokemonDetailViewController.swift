@@ -10,6 +10,7 @@ import UIKit
 
 class PokemonDetailViewController: UIViewController {
 
+    @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     @IBOutlet weak var baseStatsView: BaseStats!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet var myView: UIView!
@@ -50,6 +51,8 @@ class PokemonDetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         let scrollSize = CGSize(width: myView.frame.width,height: myView.frame.height)
         scrollView.contentSize = scrollSize
+        
+        self.scrollViewHeight.constant = ( myView.frame.height - 159 )
         
     }
     

@@ -54,8 +54,6 @@ public class Pokemon: NSManagedObject {
         let chain = PokemonDao.shared.pokeDetailCache.filter { pk in
             return (pk.evolution_chain == chainID)
         }
-//        print(chain)
-        var count = -1
         for item in chain {
             print(item)
             if item.evolve_from_speciesID == 0{
@@ -63,23 +61,30 @@ public class Pokemon: NSManagedObject {
             }
             else {
                 print("sorted chain \(sortedChain) ")
-                if var index = sortedChain.index(where: { $0.speciesID == item.evolve_from_speciesID }) {
-                    index = index == 0 ? 0 : (index + 1)
-                    sortedChain.insert(item, at: index)
+                var evolveFromSpeciesIndex = -1
+                for (index, element) in sortedChain.enumerated() {
+                    if element.speciesID == item.evolve_from_speciesID {
+                        evolveFromSpeciesIndex = index
+                        break
+                    }
+                }
+                print(evolveFromSpeciesIndex)
+                if evolveFromSpeciesIndex == -1 {
+                    print("-1 index")
+                    sortedChain.append(item)
                 }
                 else {
-                    sortedChain.insert(item, at: count + 1)
+                    evolveFromSpeciesIndex += 1
+                    sortedChain.insert(item, at: evolveFromSpeciesIndex)
                 }
             }
-            count += 1
         }
         
         
-        for item in chain {
+        for item in sortedChain {
             let poke = PokemonDao.shared.pokedexCache.filter { p in
                 return (p.speciesID == item.speciesID)
             }
-            
             if poke.count > 0{
                 arr.append(poke.first!)
             }
