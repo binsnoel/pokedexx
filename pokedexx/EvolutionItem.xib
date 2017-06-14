@@ -29,7 +29,7 @@
                         <constraint firstAttribute="height" constant="58" id="9y9-z1-odG"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mewto" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ytu-2N-NJF">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mega Charizard X" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="none" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ytu-2N-NJF">
                     <rect key="frame" x="4" y="78" width="50" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="9Ip-ux-Wgd"/>
@@ -51,7 +51,6 @@
                 <constraint firstItem="w8G-0J-XO6" firstAttribute="top" secondItem="h9E-d3-67R" secondAttribute="bottom" constant="-1" id="Byc-vt-ShY"/>
                 <constraint firstItem="ytu-2N-NJF" firstAttribute="top" secondItem="w8G-0J-XO6" secondAttribute="bottom" constant="1" id="KHd-bE-VUR"/>
                 <constraint firstAttribute="trailing" secondItem="ytu-2N-NJF" secondAttribute="trailing" constant="4" id="OTi-dm-YNX"/>
-                <constraint firstItem="h9E-d3-67R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QBz-PF-7qj"/>
                 <constraint firstItem="w8G-0J-XO6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Y4X-ge-iWp"/>
                 <constraint firstItem="h9E-d3-67R" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Zzt-66-S8C"/>
                 <constraint firstAttribute="bottom" secondItem="ytu-2N-NJF" secondAttribute="bottom" id="cQ8-a7-GoP"/>

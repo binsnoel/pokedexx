@@ -13,6 +13,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="speciesID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="switchable" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="typeA" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeB" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -30,10 +31,20 @@
         <attribute name="evolve_from_speciesID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="speciesID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="PokemonStats" representedClassName=".PokemonStats" syncable="YES">
+        <attribute name="atk" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="def" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hp" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="spAtk" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="spDef" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Ability" positionX="36" positionY="99" width="128" height="75"/>
-        <element name="Pokemon" positionX="-65" positionY="12" width="128" height="210"/>
+        <element name="Pokemon" positionX="-65" positionY="12" width="128" height="225"/>
         <element name="PokemonAbilities" positionX="27" positionY="90" width="128" height="120"/>
         <element name="PokemonDetail" positionX="97" positionY="-18" width="128" height="105"/>
+        <element name="PokemonStats" positionX="18" positionY="81" width="128" height="150"/>
     </elements>
 </model>

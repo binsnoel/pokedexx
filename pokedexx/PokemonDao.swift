@@ -14,6 +14,7 @@ class PokemonDao : NSObject {
     var pokeDetailCache: Array<PokemonDetail>
     var abilitiesCache: Array<Ability>
     var pokemonAbilities: Array<PokemonAbilities>
+    var pokemonStats: Array<PokemonStats>
     
     public static let shared = PokemonDao()
     
@@ -22,6 +23,7 @@ class PokemonDao : NSObject {
         pokeDetailCache = PokemonDao.getAllDetails()!
         abilitiesCache = PokemonDao.getAllAbilities()!
         pokemonAbilities = PokemonDao.getAllPokemonAbilities()!
+        pokemonStats = PokemonDao.getAllPokemonStats()!
     }
     
     func refreshPokedexCache() {
@@ -39,7 +41,8 @@ class PokemonDao : NSObject {
                     weight: Int32,
                     baseExp: Int32,
                     species: Int32,
-                    genus: String) {
+                    genus: String,
+                    switchable: Int32) {
         if let p = getPokemon(byId: id) {
             p.order = order
             p.name = name
@@ -50,6 +53,7 @@ class PokemonDao : NSObject {
             p.baseExp = baseExp
             p.speciesID = species
             p.genus = genus
+            p.switchable = switchable
             print("\(name) existing")
         } else {
             if let context = DataManager.shared.objectContext {
@@ -64,6 +68,7 @@ class PokemonDao : NSObject {
                 p.baseExp = baseExp
                 p.speciesID = species
                 p.genus = genus
+                p.switchable = switchable
                 try? context.save()
                 print("Added \(name)")
             }
@@ -126,11 +131,21 @@ class PokemonDao : NSObject {
     func addPokeEntry(speciesID: Int32, desc: String) {
         if let p = getPokemonDetail(bySpeciesId: speciesID) {
             p.desc = desc
-            print("pokemon detail \(speciesID): existing")
+//            try? context.save()
         } else {
+            print("pokemon detail \(speciesID): existing")
             print("add poke entry error")
         }
-
+    }
+    
+    func addPokeMega(speciesID: Int32, switchable: Int32) {
+        if let p = getPokemon(byId: speciesID){
+            p.switchable = switchable
+//            try? context.save()
+        } else {
+            print("pokemon mega \(speciesID): existing")
+            print("add poke entry error")
+        }
     }
     
     func getPokemonDetail(bySpeciesId: Int32) -> PokemonDetail? {
@@ -253,6 +268,69 @@ class PokemonDao : NSObject {
     func refreshPokeAbilitiesCache() {
         self.pokemonAbilities = PokemonDao.getAllPokemonAbilities()!
     }
+    
+    
+    // MARK: - Pokemon Stats
+    
+    func addPokemonStats(id:Int32,
+                         hp: Int32,
+                         atk:Int32,
+                         def: Int32,
+                         spAtk: Int32,
+                         spDef: Int32,
+                         speed: Int32) {
+        
+        if let p = getPokemonStat(byId: id) {
+            p.hp = hp
+            p.atk = atk
+            p.def = def
+            p.spAtk = spAtk
+            p.spDef = spDef
+            p.speed = speed
+            print("pokemon stat \(id) existing")
+        } else {
+            if let context = DataManager.shared.objectContext {
+                let p = PokemonStats(context: context)
+                p.hp = hp
+                p.atk = atk
+                p.def = def
+                p.spAtk = spAtk
+                p.spDef = spDef
+                p.speed = speed
+                p.id = id
+                try? context.save()
+                print("pokemon stat \(id) added")
+            }
+        }
+    }
+    
+    func getPokemonStat(byId: Int32) -> PokemonStats? {
+        
+        if let context = DataManager.shared.objectContext {
+            let request: NSFetchRequest<PokemonStats> = PokemonStats.fetchRequest()
+            request.predicate = NSPredicate(format: "id==%d", byId)
+            if let pokestats = try? context.fetch(request) {
+                return pokestats.first
+            }
+        }
+        
+        return nil
+    }
+    
+    class func getAllPokemonStats() -> [PokemonStats]? {
+        if let context = DataManager.shared.objectContext {
+            let request: NSFetchRequest<PokemonStats> = PokemonStats.fetchRequest()
+            if let pokestats = try? context.fetch(request) {
+                return pokestats
+            }
+        }
+        return nil
+    }
+    
+    func refreshPokeStatsCache() {
+        self.pokemonStats = PokemonDao.getAllPokemonStats()!
+    }
+    
     
 
     

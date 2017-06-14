@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/bins/Documents/iOS/pokedexx/PokemonStats.swift">
+   </FileRef>
+   <FileRef
+      location = "group:PokemonStats+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:pokedexx/PokemonAbilities+CoreDataProperties.swift">
    </FileRef>
    <FileRef

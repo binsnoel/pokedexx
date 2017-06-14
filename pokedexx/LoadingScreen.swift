@@ -12,7 +12,7 @@ import SCLAlertView
 
 class LoadingScreen: UIViewController,NVActivityIndicatorViewable {
     
-    var texts = ["Applying Repel", "Waking Snorlax", "Seeking Seaking", "Charging Pikachu", "Hatching Eggs" ,"Loading Pokédex"]
+    var texts = ["Applying Repel", "Waking Snorlax", "Seeking Seaking", "Charging Pikachu", "Hatching Eggs","Using Escape Rope", "Buying Pokéballs", "Untangling Tangela" ,"Loading Pokédex"]
     var timer : Timer?
     
     override func viewDidLoad() {

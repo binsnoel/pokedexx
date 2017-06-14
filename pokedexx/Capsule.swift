@@ -110,6 +110,7 @@ import UIKit
                 self.lblHidden.textColor = UIColor.black
                 self.lblHidden.layer.borderWidth = 1
                 self.lblHidden.layer.borderColor = Common.getTypeColor(pokemonType).cgColor
+                self.setAbilityCapsuleTextColor2(pokemonType: pokemonType)
                 break
             default:
                 break
@@ -121,6 +122,14 @@ import UIKit
         if pokemonType == .Dark || pokemonType == .Fighting || pokemonType == .Ghost
          || pokemonType == .Poison{
             self.capsuleLabel.textColor = UIColor.white
+        }
+    }
+    
+    
+    func setAbilityCapsuleTextColor2(pokemonType: Enums.PokemonType){
+        if pokemonType == .Dark || pokemonType == .Fighting || pokemonType == .Ghost
+            || pokemonType == .Poison{
+            self.lblHidden.textColor = UIColor.white
         }
     }
 }

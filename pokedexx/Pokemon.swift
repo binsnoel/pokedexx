@@ -47,6 +47,21 @@ public class Pokemon: NSManagedObject {
         return ""
     }
     
+    func getPokeStats() -> PokemonStats? {
+        if let index2 = PokemonDao.shared.pokemonStats.index(where: { $0.id == self.id }) {
+            return PokemonDao.shared.pokemonStats[index2]
+        }
+        else {
+            Parser.shared.parsePokemonStats(byID: self.id)
+            if let index2 = PokemonDao.shared.pokemonStats.index(where: { $0.id == self.id }) {
+                return PokemonDao.shared.pokemonStats[index2]
+            }
+            else {
+                return nil
+            }
+        }
+    }
+    
     func getEvolutionChain(chainID: Int32) -> [Pokemon]? {
         var arr = [Pokemon]()
         var sortedChain = [PokemonDetail]()
@@ -91,5 +106,18 @@ public class Pokemon: NSManagedObject {
         }
         
         return arr
+    }
+    
+    func getMegaEvolutionChain() -> [Pokemon]? {
+        let chain = PokemonDao.shared.pokedexCache.filter { p in
+            return (p.speciesID == self.speciesID)
+        }
+        
+        if chain.count > 0 {
+            return chain
+        }
+        else {
+            return nil
+        }
     }
 }

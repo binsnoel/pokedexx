@@ -26,5 +26,6 @@ extension Pokemon {
     @NSManaged public var typeA: String?
     @NSManaged public var typeB: String?
     @NSManaged public var weight: Int32
+    @NSManaged public var switchable: Int32
 
 }

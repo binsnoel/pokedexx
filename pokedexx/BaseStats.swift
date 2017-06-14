@@ -11,6 +11,15 @@ import UIKit
 @IBDesignable class BaseStats: UIView {
     
     
+    @IBOutlet weak var innerView: UIView!
+    @IBOutlet weak var statViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var speedWidth: NSLayoutConstraint!
+    @IBOutlet weak var spDefWidth: NSLayoutConstraint!
+    @IBOutlet weak var spAtkWidth: NSLayoutConstraint!
+    @IBOutlet weak var defWidth: NSLayoutConstraint!
+    @IBOutlet weak var atkWidth: NSLayoutConstraint!
+    @IBOutlet weak var hpWidth: NSLayoutConstraint!
+    @IBOutlet weak var statview: UIView!
     @IBOutlet weak var lblSpeed: UILabel!
     @IBOutlet weak var lblSpDef: UILabel!
     @IBOutlet weak var lblSpAtk: UILabel!
@@ -53,8 +62,10 @@ import UIKit
         
         // use bounds not frame or it'll be offset
         view.frame = bounds
-//        view.layer.cornerRadius = 10
-//        innerView.layer.cornerRadius = 9
+        self.view.backgroundColor = UIColor.darkGray
+        self.view.layer.cornerRadius = 10
+        self.innerView.layer.cornerRadius = 9
+        self.innerView.backgroundColor = UIColor.white
         
         // Make the view stretch with containing view
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
@@ -92,15 +103,42 @@ import UIKit
         }
     }
     
-    func setupWidths() {
+    func setup(_ pokeStats: PokemonStats) {
+        self.lblHP.text = String(pokeStats.hp)
+        self.lblAtk.text = String(pokeStats.atk)
+        self.lblDef.text = String(pokeStats.def)
+        self.lblSpAtk.text = String(pokeStats.spAtk)
+        self.lblSpDef.text = String(pokeStats.spDef)
+        self.lblSpeed.text = String(pokeStats.speed)
+        self.calculateTotal(pokeStats)
         
-//        self.HP.backgroundColor = Common.getTypeColor(pokemonType)
-//        self.Atk.backgroundColor = Common.getTypeColor(pokemonType)
-//        self.Def.backgroundColor = Common.getTypeColor(pokemonType)
-//        self.SpAtk.backgroundColor = Common.getTypeColor(pokemonType)
-//        self.SpDef.backgroundColor = Common.getTypeColor(pokemonType)
-//        self.Speed.backgroundColor = Common.getTypeColor(pokemonType)
+        self.hpWidth.constant = calculateWidth(pokeStats.hp)
+        self.atkWidth.constant = calculateWidth(pokeStats.atk)
+        self.defWidth.constant = calculateWidth(pokeStats.def)
+        self.spAtkWidth.constant = calculateWidth(pokeStats.spAtk)
+        self.spDefWidth.constant = calculateWidth(pokeStats.spDef)
+        self.speedWidth.constant = calculateWidth(pokeStats.speed)
     }
+    
+    func calculateWidth(_ stat: Int32) -> CGFloat{
+        let w = self.statview.bounds.width
+        let progress = CGFloat(stat)
+        var x = w * (progress/255)
+        x = x < 28 ? 28 : x
+        return x
+    }
+    
+    func calculateTotal(_ stat: PokemonStats) {
+        let total = stat.hp +
+                    stat.atk +
+                    stat.def +
+                    stat.spAtk +
+                    stat.spDef +
+                    stat.speed
+        self.total.text = String(total)
+    }
+    
+    
     
 
 }

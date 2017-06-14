@@ -64,6 +64,7 @@ import UIKit
         return view
     }
     
+    
     func initializeView(withAbilities: [PokemonAbilities], pokemonType: Enums.PokemonType) {
         
         for ability in withAbilities {
@@ -93,7 +94,6 @@ import UIKit
             
         }
         else if withAbilities.count == 1 {
-            
             self.lblOr.isHidden = true
             self.ability2.isHidden = true
             self.ability2Right.priority = 999

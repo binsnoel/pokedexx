@@ -62,7 +62,8 @@ class Parser{
                                              weight: Int32(row["weight"]!)!,
                                              baseExp: Int32(row["base_experience"]!)!,
                                              species: Int32(row["species_id"]!)!,
-                                             genus: gen)
+                                             genus: gen,
+                                             switchable: -1)
                 
             }
             
@@ -81,14 +82,36 @@ class Parser{
         }
     }
     
+    func parsePokemonMegaEvolution(speciesID: Int32){
+        do {
+            let path = Bundle.main.path(forResource: "pokemon_species", ofType: "csv")
+            let details = try CSV(contentsOfURL: path!)
+            
+            let detail = details.rows.filter{
+                return $0["id"] == String(speciesID)
+            }
+            
+            if let val = detail.first?["forms_switchable"]!{
+                
+                PokemonDao.shared.addPokeMega(speciesID: speciesID,
+                                              switchable: Int32(val)!)
+                
+                PokemonDao.shared.refreshPokedexCache()
+            }
+            
+        }
+        catch {
+            
+        }
+        
+
+    }
+    
     func parsePokemonDetail(){
         do {
             
             let path1 = Bundle.main.path(forResource: "pokemon_species", ofType: "csv")
             let pokeSpecies = try CSV(contentsOfURL: path1!)
-//            let specs = pokeSpecies.rows.filter{
-//                return $0["id"] == String(byID)
-//            }
             
             for specs in pokeSpecies.rows {
                 let echain = specs["evolution_chain_id"]!
@@ -180,6 +203,35 @@ class Parser{
             }
             
             PokemonDao.shared.refreshPokeAbilitiesCache()
+            
+        }
+        catch {
+            // Error handling
+            //alertview
+        }
+    }
+    
+    
+    
+    func parsePokemonStats(byID: Int32) {
+        do {
+            let path = Bundle.main.path(forResource: "pokemon_stats", ofType: "csv")
+            let poke_stats = try CSV(contentsOfURL: path!)
+            
+            let s = poke_stats.rows.filter{
+                return $0["pokemon_id"] == String(byID)
+            }
+            if s.count == 6 {
+                PokemonDao.shared.addPokemonStats(id: Int32(s[0]["pokemon_id"]!)!,
+                                                  hp: Int32(s[0]["base_stat"]!)!,
+                                                  atk: Int32(s[1]["base_stat"]!)!,
+                                                  def: Int32(s[2]["base_stat"]!)!,
+                                                  spAtk: Int32(s[3]["base_stat"]!)!,
+                                                  spDef: Int32(s[4]["base_stat"]!)!,
+                                                  speed: Int32(s[5]["base_stat"]!)!)
+            }
+            
+            PokemonDao.shared.refreshPokeStatsCache()
             
         }
         catch {
