@@ -9,9 +9,10 @@
 import UIKit
 
 class PokemonDetailViewController: UIViewController {
-
-    @IBOutlet weak var branchEvolutionViewTop: NSLayoutConstraint!
-    @IBOutlet weak var evolutionViewTop: NSLayoutConstraint!
+    @IBOutlet weak var fiveBranchView: FiveBranchEvolution!
+    @IBOutlet weak var eveelution: Eveelution!
+    @IBOutlet weak var threeBranchEvolution: ThreeBranchEvolution!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var branchEvolutionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var evolutionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var branchEvolutionChain: BranchEvolutionChain!
@@ -44,11 +45,9 @@ class PokemonDetailViewController: UIViewController {
     
     var selectedPokeID : Int32 = 0
     var heightReduction : Int32 = 0
-//    var hasLoadedDetails = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
     }
     
@@ -56,10 +55,10 @@ class PokemonDetailViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let scrollSize = CGSize(width: myView.frame.width,height: myView.frame.height)
-        scrollView.contentSize = scrollSize
-        let h = CGFloat(Int32(myView.frame.height) - 159)
-        self.scrollViewHeight.constant =  CGFloat(h + CGFloat(500))
+//        let scrollSize = CGSize(width: myView.frame.width,height: myView.frame.height)
+//        scrollView.contentSize = scrollSize
+//        let h = CGFloat(Int32(myView.frame.height) - 159)
+//        self.scrollViewHeight.constant =  CGFloat(h + CGFloat(500))
         //none
     }
     
@@ -77,44 +76,90 @@ class PokemonDetailViewController: UIViewController {
     
     // MARK: - View setup functions
     
-    func searchId(_ id: Int32) -> Bool{
-        //ids
-        let arr = [79,80,199]
-        
-        if arr.contains(Int(id)) {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-    
+    //get details of pokemon - specifically evolution details
     func getDetails(currentPokemon: Pokemon) {
+        
+        //one then 2 branch evolution
+        let slowpokeArr = [79,80,199,361,362,478,366,367,368,412,413,414,290,292,291]
+        //two then 2 brannch evolution
+        let gloomArr = [43,44,45,182,60,61,62,186,280,281,282,475]
+        //one then 3 branch evolution
+        let tyrogueArr = [236,237,106,107]
         
         let deets = currentPokemon.getDetails()
         if deets != nil {
             //setup evolution
             let x = currentPokemon.getEvolutionChain(chainID: (deets?.evolution_chain)!)!
             let id = currentPokemon.speciesID
-            if x.count <= 3 && !(self.searchId(id)){
-                self.evolutionView.delegate = self
-                self.evolutionView.setup(x, current: currentPokemon)
-                self.branchEvolutionViewHeight.constant = 0
-                self.branchEvolutionViewTop.constant = 0
-                self.branchEvolutionChain.isHidden = true
+            if x.count <= 3 {
+                if slowpokeArr.contains(Int(id)) {
+                    self.branchEvolutionChain.delegate = self
+                    self.branchEvolutionChain.setup(x, current: currentPokemon)
+                    self.threeBranchEvolution.isHidden = true
+                    self.evolutionView.isHidden = true
+                    self.eveelution.isHidden = true
+                    self.stackView.removeArrangedSubview(self.threeBranchEvolution)
+                    self.stackView.removeArrangedSubview(self.evolutionView)
+                    self.stackView.removeArrangedSubview(self.eveelution)
+                }
+                else { // normal evolution
+                    self.evolutionView.delegate = self
+                    self.evolutionView.setup(x, current: currentPokemon)
+                    self.branchEvolutionChain.isHidden = true
+                    self.threeBranchEvolution.isHidden = true
+                    self.stackView.removeArrangedSubview(self.eveelution)
+                    self.stackView.removeArrangedSubview(self.branchEvolutionChain)
+                    self.stackView.removeArrangedSubview(self.threeBranchEvolution)
+                    self.stackView.removeArrangedSubview(self.eveelution)
+                }
+                self.fiveBranchView.isHidden = true
+                self.stackView.removeArrangedSubview(self.fiveBranchView)
             }
-            else if x.count == 4 || (self.searchId(id)){
-                self.branchEvolutionChain.delegate = self
-                self.branchEvolutionChain.setup(x, current: currentPokemon)
-                self.evolutionViewHeight.constant = 0
-                self.evolutionViewTop.constant = 0
-                self.evolutionView.isHidden = true
+            else if x.count == 4 {
+                if gloomArr.contains(Int(id)) {
+                    self.branchEvolutionChain.delegate = self
+                    self.branchEvolutionChain.setup(x, current: currentPokemon)
+                    self.threeBranchEvolution.isHidden = true
+                    self.stackView.removeArrangedSubview(self.threeBranchEvolution)
+                }
+                else if tyrogueArr.contains(Int(id)){
+                    self.threeBranchEvolution.delegate = self
+                    self.threeBranchEvolution.setup(x, current: currentPokemon)
+                    self.stackView.removeArrangedSubview(self.branchEvolutionChain)
+                    
+                }
+                self.stackView.removeArrangedSubview(self.eveelution)
+                self.stackView.removeArrangedSubview(self.evolutionView)
+                self.stackView.removeArrangedSubview(self.eveelution)
+                self.fiveBranchView.isHidden = true
+                self.stackView.removeArrangedSubview(self.fiveBranchView)
+                
             }
             else if x.count == 5 {
-                //wurmpule shit
+                self.evolutionView.isHidden = true
+                self.branchEvolutionChain.isHidden = true
+                self.threeBranchEvolution.isHidden = true
+                self.stackView.removeArrangedSubview(self.evolutionView)
+                self.eveelution.isHidden = true
+                self.stackView.removeArrangedSubview(self.eveelution)
+                self.stackView.removeArrangedSubview(self.branchEvolutionChain)
+                self.stackView.removeArrangedSubview(self.threeBranchEvolution)
+                
+                self.fiveBranchView.delegate = self
+                self.fiveBranchView.setup(x, current: currentPokemon)
             }
             else if x.count > 5 {
-                //evee shit
+                self.evolutionView.isHidden = true
+                self.branchEvolutionChain.isHidden = true
+                self.threeBranchEvolution.isHidden = true
+                self.stackView.removeArrangedSubview(self.evolutionView)
+                self.stackView.removeArrangedSubview(self.branchEvolutionChain)
+                self.stackView.removeArrangedSubview(self.threeBranchEvolution)
+                self.fiveBranchView.isHidden = true
+                self.stackView.removeArrangedSubview(self.fiveBranchView)
+                
+                self.eveelution.delegate = self
+                self.eveelution.setup(x, current: currentPokemon)
             }
             
             
@@ -136,7 +181,8 @@ class PokemonDetailViewController: UIViewController {
                 Parser.shared.parsePokemonMegaEvolution(speciesID: currentPokemon.speciesID)
             }
             if currentPokemon.switchable == 0 {
-                heightReduction += 0
+//                heightReduction += 0
+                self.stackView.removeArrangedSubview(self.megaEvolution)
                 self.megaEvolution.isHidden = true
             }
             self.megaEvolution.delegate = self
@@ -144,7 +190,7 @@ class PokemonDetailViewController: UIViewController {
         }
     }
     
-    
+    //setup the view for pokemon name, image, type, weight, height
     func setupView() {
         
         if let index = PokemonDao.shared.pokedexCache.index(where: { $0.id == selectedPokeID }) {
@@ -239,9 +285,6 @@ class PokemonDetailViewController: UIViewController {
 
 extension PokemonDetailViewController : EvolutionChainDelegate {
     func didTapPokemon(id: Int32) {
-//        DispatchQueue.main.async(execute: {
-//            self.displayPokedexView(animated:true)
-//        })
         print("tapped id \(id)")
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -256,9 +299,47 @@ extension PokemonDetailViewController : EvolutionChainDelegate {
 
 extension PokemonDetailViewController : BranchEvolutionChainDelegate {
     func didTapPokemonBranch(id: Int32) {
-        //        DispatchQueue.main.async(execute: {
-        //            self.displayPokedexView(animated:true)
-        //        })
+        print("tapped id \(id)")
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "pokemonDetail") as! PokemonDetailViewController
+        nextViewController.selectedPokeID = id
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+}
+
+
+
+extension PokemonDetailViewController : ThreeBranchEvolutionChainDelegate {
+    func didTapPokemonThreeBranch(id: Int32) {
+        print("tapped id \(id)")
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "pokemonDetail") as! PokemonDetailViewController
+        nextViewController.selectedPokeID = id
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+}
+
+extension PokemonDetailViewController : EveelutionDelegate {
+    func didTapPokemonEveelution(id: Int32) {
+        print("tapped id \(id)")
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "pokemonDetail") as! PokemonDetailViewController
+        nextViewController.selectedPokeID = id
+        
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+}
+
+extension PokemonDetailViewController : FiveBranchEvolutionChainDelegate {
+    func didTapPokemonFiveBranch(id: Int32) {
         print("tapped id \(id)")
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)

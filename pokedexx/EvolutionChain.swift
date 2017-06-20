@@ -139,6 +139,14 @@ protocol EvolutionChainDelegate : class {
             
             self.lblEvolutionChain.text = "Mega Evolution"
         }
+        else if ch.count == 3 {
+            self.chain1.setupItem(ch[1], current: currentPk)
+            self.chain2.setupItem(ch[0], current: currentPk)
+            self.chain3.setupItem(ch[2], current: currentPk)
+            self.arrow1.image = #imageLiteral(resourceName: "frontback")
+            self.arrow2.image = #imageLiteral(resourceName: "frontback")
+            
+        }
 
     }
     

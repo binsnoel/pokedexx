@@ -122,7 +122,7 @@
                         <viewControllerLayoutGuide type="bottom" id="VQe-YV-mQV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZmO-0C-XQN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1160"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="3000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Gs-nB-NND">
@@ -300,10 +300,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i73-xh-hLN">
-                                <rect key="frame" x="0.0" y="223" width="375" height="800"/>
+                                <rect key="frame" x="0.0" y="223" width="375" height="3000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nj3-6U-f2e">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="3700"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedéx Entry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD3-F6-tS2">
                                                 <rect key="frame" x="8" y="77" width="359" height="21"/>
@@ -339,58 +339,71 @@
                                                     <constraint firstAttribute="height" constant="200" id="OaC-Qw-ro5"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrD-eJ-2WI" customClass="EvolutionChain" customModule="pokedexx" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="434" width="359" height="124"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="124" id="yKF-DI-GXW"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o8K-KU-rDi" customClass="BranchEvolutionChain" customModule="pokedexx" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="578" width="359" height="239"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="239" id="2ad-7F-3XC"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjn-hw-Uxd" customClass="EvolutionChain" customModule="pokedexx" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="837" width="359" height="124"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="124" id="Wlg-72-wxF"/>
-                                                </constraints>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TGB-dU-b3h">
+                                                <rect key="frame" x="8" y="434" width="359" height="1586"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrD-eJ-2WI" customClass="EvolutionChain" customModule="pokedexx" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="124"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="124" id="yKF-DI-GXW"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o8K-KU-rDi" customClass="BranchEvolutionChain" customModule="pokedexx" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="144" width="359" height="239"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="239" id="2ad-7F-3XC"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aC6-Ou-yNX" customClass="ThreeBranchEvolution" customModule="pokedexx" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="403" width="359" height="360"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="360" id="gLw-6L-rMN"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Eg-gm-ZP1" customClass="Eveelution" customModule="pokedexx" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="783" width="359" height="400"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caj-ZB-dIp" customClass="FiveBranchEvolution" customModule="pokedexx" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="1203" width="359" height="239"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjn-hw-Uxd" customClass="EvolutionChain" customModule="pokedexx" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="1462" width="359" height="124"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="124" id="Wlg-72-wxF"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="kD3-F6-tS2" secondAttribute="trailing" constant="8" id="1iT-C4-0HF"/>
                                             <constraint firstItem="kD3-F6-tS2" firstAttribute="width" secondItem="4uZ-iE-bTs" secondAttribute="width" id="207-MJ-Kto"/>
                                             <constraint firstItem="kD3-F6-tS2" firstAttribute="leading" secondItem="nj3-6U-f2e" secondAttribute="leading" constant="8" id="2M9-S2-6hT"/>
-                                            <constraint firstItem="o8K-KU-rDi" firstAttribute="top" secondItem="zrD-eJ-2WI" secondAttribute="bottom" constant="20" id="7Nf-KI-mqg"/>
-                                            <constraint firstItem="tjn-hw-Uxd" firstAttribute="leading" secondItem="nj3-6U-f2e" secondAttribute="leading" constant="8" id="BkY-Qc-N1G"/>
                                             <constraint firstItem="lkl-Wz-koO" firstAttribute="top" secondItem="AXv-cR-vCu" secondAttribute="bottom" constant="20" id="Cr9-QS-Zqa"/>
                                             <constraint firstItem="4uZ-iE-bTs" firstAttribute="leading" secondItem="nj3-6U-f2e" secondAttribute="leading" constant="8" id="DLI-lT-zaG"/>
                                             <constraint firstItem="AXv-cR-vCu" firstAttribute="centerX" secondItem="nj3-6U-f2e" secondAttribute="centerX" id="GAt-CX-8gT"/>
                                             <constraint firstAttribute="trailing" secondItem="AXv-cR-vCu" secondAttribute="trailing" constant="8" id="Mez-oc-yBQ"/>
                                             <constraint firstItem="lkl-Wz-koO" firstAttribute="centerX" secondItem="nj3-6U-f2e" secondAttribute="centerX" id="Qwe-i4-usp"/>
-                                            <constraint firstAttribute="trailing" secondItem="tjn-hw-Uxd" secondAttribute="trailing" constant="8" id="Ta1-xV-2uL"/>
-                                            <constraint firstItem="zrD-eJ-2WI" firstAttribute="leading" secondItem="nj3-6U-f2e" secondAttribute="leading" constant="8" id="Wex-KL-hBt"/>
                                             <constraint firstItem="4uZ-iE-bTs" firstAttribute="top" secondItem="nj3-6U-f2e" secondAttribute="top" constant="5" id="XpJ-1O-hUv"/>
-                                            <constraint firstItem="tjn-hw-Uxd" firstAttribute="top" secondItem="o8K-KU-rDi" secondAttribute="bottom" constant="20" id="ewh-74-4Rl"/>
-                                            <constraint firstItem="zrD-eJ-2WI" firstAttribute="centerX" secondItem="nj3-6U-f2e" secondAttribute="centerX" id="flz-fV-SSW"/>
+                                            <constraint firstItem="TGB-dU-b3h" firstAttribute="top" secondItem="lkl-Wz-koO" secondAttribute="bottom" constant="20" id="a7r-tW-DPv"/>
+                                            <constraint firstAttribute="trailing" secondItem="TGB-dU-b3h" secondAttribute="trailing" constant="8" id="dmd-4W-H0j"/>
                                             <constraint firstItem="lkl-Wz-koO" firstAttribute="leading" secondItem="nj3-6U-f2e" secondAttribute="leading" constant="8" id="fuL-Ds-XNa"/>
-                                            <constraint firstAttribute="trailing" secondItem="o8K-KU-rDi" secondAttribute="trailing" constant="8" id="ibK-Zk-sBx"/>
                                             <constraint firstItem="kD3-F6-tS2" firstAttribute="top" secondItem="4uZ-iE-bTs" secondAttribute="bottom" constant="2" id="knn-Tx-AAR"/>
                                             <constraint firstAttribute="trailing" secondItem="lkl-Wz-koO" secondAttribute="trailing" constant="8" id="kxk-Az-kNI"/>
                                             <constraint firstItem="AXv-cR-vCu" firstAttribute="leading" secondItem="nj3-6U-f2e" secondAttribute="leading" constant="8" id="ojn-qd-cXs"/>
+                                            <constraint firstItem="TGB-dU-b3h" firstAttribute="leading" secondItem="nj3-6U-f2e" secondAttribute="leading" constant="8" id="suU-z6-Iin"/>
                                             <constraint firstAttribute="trailing" secondItem="4uZ-iE-bTs" secondAttribute="trailing" constant="8" id="tHk-R6-j16"/>
-                                            <constraint firstItem="o8K-KU-rDi" firstAttribute="leading" secondItem="nj3-6U-f2e" secondAttribute="leading" constant="8" id="vEo-i9-3mO"/>
-                                            <constraint firstAttribute="trailing" secondItem="zrD-eJ-2WI" secondAttribute="trailing" constant="8" id="vbY-mL-l7i"/>
-                                            <constraint firstItem="zrD-eJ-2WI" firstAttribute="top" secondItem="lkl-Wz-koO" secondAttribute="bottom" constant="20" id="vjA-l2-fxh"/>
                                             <constraint firstItem="AXv-cR-vCu" firstAttribute="top" secondItem="kD3-F6-tS2" secondAttribute="bottom" constant="15" id="zOz-3p-HTE"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="nj3-6U-f2e" firstAttribute="height" secondItem="i73-xh-hLN" secondAttribute="height" constant="500" id="1zL-R5-0tR"/>
+                                    <constraint firstItem="nj3-6U-f2e" firstAttribute="height" secondItem="i73-xh-hLN" secondAttribute="height" constant="700" id="1zL-R5-0tR"/>
                                     <constraint firstAttribute="trailing" secondItem="nj3-6U-f2e" secondAttribute="trailing" id="H92-NL-hcr"/>
-                                    <constraint firstAttribute="height" constant="800" id="KIi-mB-htE"/>
+                                    <constraint firstAttribute="height" constant="3000" id="KIi-mB-htE"/>
                                     <constraint firstAttribute="bottom" secondItem="nj3-6U-f2e" secondAttribute="bottom" constant="-212" id="WRX-we-Mez"/>
                                     <constraint firstItem="nj3-6U-f2e" firstAttribute="top" secondItem="i73-xh-hLN" secondAttribute="top" id="aYO-HT-UR1"/>
                                     <constraint firstItem="nj3-6U-f2e" firstAttribute="width" secondItem="i73-xh-hLN" secondAttribute="width" id="axc-5e-O0m"/>
@@ -411,22 +424,22 @@
                     </view>
                     <navigationItem key="navigationItem" id="o3y-2y-cqQ"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1160"/>
+                    <size key="freeformSize" width="375" height="3000"/>
                     <connections>
                         <outlet property="abilitiesView" destination="AXv-cR-vCu" id="IMV-l8-FzK"/>
                         <outlet property="baseStatsView" destination="lkl-Wz-koO" id="Yst-SK-uq8"/>
                         <outlet property="branchEvolutionChain" destination="o8K-KU-rDi" id="XQe-G7-Q7Y"/>
                         <outlet property="branchEvolutionViewHeight" destination="2ad-7F-3XC" id="VC0-KM-Goz"/>
-                        <outlet property="branchEvolutionViewTop" destination="7Nf-KI-mqg" id="ZF3-e5-yzN"/>
                         <outlet property="capsuleID" destination="Pkn-VJ-Ouo" id="Gvc-Ed-6Kh"/>
                         <outlet property="capsuleSpecies" destination="ahs-wN-rm8" id="HLh-9e-74o"/>
                         <outlet property="capsuleTpyeATrail" destination="VnL-sa-CQE" id="FT4-xo-ZBb"/>
                         <outlet property="capsuleTypeA" destination="4Tw-Ub-NvW" id="8kP-hp-YvJ"/>
                         <outlet property="capsuleTypeAWidth" destination="wzF-qL-Xbn" id="t5p-h0-hmK"/>
                         <outlet property="capsuleTypeB" destination="Cx5-xU-zEb" id="PNL-eR-Bke"/>
+                        <outlet property="eveelution" destination="2Eg-gm-ZP1" id="7Yx-4f-jID"/>
                         <outlet property="evolutionView" destination="zrD-eJ-2WI" id="vgH-NI-QUD"/>
                         <outlet property="evolutionViewHeight" destination="yKF-DI-GXW" id="sIG-ds-HrW"/>
-                        <outlet property="evolutionViewTop" destination="vjA-l2-fxh" id="OwY-dp-4qc"/>
+                        <outlet property="fiveBranchView" destination="caj-ZB-dIp" id="wgq-ZK-g4r"/>
                         <outlet property="headerView" destination="8Gs-nB-NND" id="y37-Je-5JY"/>
                         <outlet property="innverViewScrool" destination="nj3-6U-f2e" id="BGG-UU-1e2"/>
                         <outlet property="lblCapsuleTypeA" destination="KCQ-EP-WcO" id="6jb-I2-F2j"/>
@@ -442,6 +455,8 @@
                         <outlet property="pokeWeight" destination="C7m-zx-zbS" id="9so-qh-reN"/>
                         <outlet property="scrollView" destination="i73-xh-hLN" id="CrR-og-7Tr"/>
                         <outlet property="scrollViewHeight" destination="KIi-mB-htE" id="PgK-UE-hHs"/>
+                        <outlet property="stackView" destination="TGB-dU-b3h" id="qg8-K5-eA3"/>
+                        <outlet property="threeBranchEvolution" destination="aC6-Ou-yNX" id="HQ9-5z-SIP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aU4-2s-bh0" userLabel="First Responder" sceneMemberID="firstResponder"/>

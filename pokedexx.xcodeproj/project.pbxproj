@@ -30,8 +30,6 @@
 		3D22816C1EBCE07600B440DF /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22816B1EBCE07600B440DF /* csv.swift */; };
 		3D22816E1EBDF76B00B440DF /* Abilities.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D22816D1EBDF76B00B440DF /* Abilities.xib */; };
 		3D2281701EBDF78500B440DF /* Abilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D22816F1EBDF78500B440DF /* Abilities.swift */; };
-		3D2281731EC0A1B700B440DF /* MegaEvolution.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2281721EC0A1B600B440DF /* MegaEvolution.xib */; };
-		3D2281751EC0A1E100B440DF /* MegaEvolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2281741EC0A1E100B440DF /* MegaEvolution.swift */; };
 		3D290F151EDF19E0003EF897 /* PokemonStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D290F131EDF19E0003EF897 /* PokemonStats.swift */; };
 		3D290F161EDF19E0003EF897 /* PokemonStats+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D290F141EDF19E0003EF897 /* PokemonStats+CoreDataProperties.swift */; };
 		3D2C64CA1E99E1110077181C /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2C64C91E99E1110077181C /* Capsule.swift */; };
@@ -60,6 +58,12 @@
 		3DDEB16D1EBB647000371C33 /* EvolutionItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDEB16C1EBB647000371C33 /* EvolutionItem.xib */; };
 		3DDEB1701EBB706000371C33 /* EvolutionChain.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DDEB16F1EBB706000371C33 /* EvolutionChain.xib */; };
 		3DDEB1721EBB707000371C33 /* EvolutionChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDEB1711EBB707000371C33 /* EvolutionChain.swift */; };
+		3DEEEE811EF2AD84007924A4 /* ThreeBranchEvolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEEEE801EF2AD84007924A4 /* ThreeBranchEvolution.swift */; };
+		3DEEEE831EF2AD92007924A4 /* ThreeBranchEvolution.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEEEE821EF2AD92007924A4 /* ThreeBranchEvolution.xib */; };
+		3DEEEE861EF56C90007924A4 /* FiveBranchEvolution.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEEEE851EF56C90007924A4 /* FiveBranchEvolution.xib */; };
+		3DEEEE881EF56C9E007924A4 /* FiveBranchEvolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEEEE871EF56C9E007924A4 /* FiveBranchEvolution.swift */; };
+		3DEEEE8A1EF56CAB007924A4 /* Eveelution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEEEE891EF56CAB007924A4 /* Eveelution.swift */; };
+		3DEEEE8C1EF56CB3007924A4 /* Eveelution.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEEEE8B1EF56CB3007924A4 /* Eveelution.xib */; };
 		D8CC0D41615470515A5BACE7 /* Pods_pokedexx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655BE2415CAACD4F054E7734 /* Pods_pokedexx.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,8 +92,6 @@
 		3D22816B1EBCE07600B440DF /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 		3D22816D1EBDF76B00B440DF /* Abilities.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Abilities.xib; sourceTree = "<group>"; };
 		3D22816F1EBDF78500B440DF /* Abilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Abilities.swift; sourceTree = "<group>"; };
-		3D2281721EC0A1B600B440DF /* MegaEvolution.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MegaEvolution.xib; sourceTree = "<group>"; };
-		3D2281741EC0A1E100B440DF /* MegaEvolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MegaEvolution.swift; sourceTree = "<group>"; };
 		3D290F131EDF19E0003EF897 /* PokemonStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonStats.swift; sourceTree = "<group>"; };
 		3D290F141EDF19E0003EF897 /* PokemonStats+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PokemonStats+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3D2C64C91E99E1110077181C /* Capsule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capsule.swift; sourceTree = "<group>"; };
@@ -120,6 +122,12 @@
 		3DDEB16C1EBB647000371C33 /* EvolutionItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvolutionItem.xib; sourceTree = "<group>"; };
 		3DDEB16F1EBB706000371C33 /* EvolutionChain.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvolutionChain.xib; sourceTree = "<group>"; };
 		3DDEB1711EBB707000371C33 /* EvolutionChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvolutionChain.swift; sourceTree = "<group>"; };
+		3DEEEE801EF2AD84007924A4 /* ThreeBranchEvolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeBranchEvolution.swift; sourceTree = "<group>"; };
+		3DEEEE821EF2AD92007924A4 /* ThreeBranchEvolution.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreeBranchEvolution.xib; sourceTree = "<group>"; };
+		3DEEEE851EF56C90007924A4 /* FiveBranchEvolution.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiveBranchEvolution.xib; sourceTree = "<group>"; };
+		3DEEEE871EF56C9E007924A4 /* FiveBranchEvolution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiveBranchEvolution.swift; sourceTree = "<group>"; };
+		3DEEEE891EF56CAB007924A4 /* Eveelution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Eveelution.swift; sourceTree = "<group>"; };
+		3DEEEE8B1EF56CB3007924A4 /* Eveelution.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Eveelution.xib; sourceTree = "<group>"; };
 		655BE2415CAACD4F054E7734 /* Pods_pokedexx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokedexx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88561750F5AF142B7F458BF1 /* Pods-pokedexx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedexx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pokedexx/Pods-pokedexx.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,15 +172,6 @@
 				3D22816D1EBDF76B00B440DF /* Abilities.xib */,
 			);
 			name = Abilities;
-			sourceTree = "<group>";
-		};
-		3D2281761EC0A1E600B440DF /* MegaEvolution */ = {
-			isa = PBXGroup;
-			children = (
-				3D2281741EC0A1E100B440DF /* MegaEvolution.swift */,
-				3D2281721EC0A1B600B440DF /* MegaEvolution.xib */,
-			);
-			name = MegaEvolution;
 			sourceTree = "<group>";
 		};
 		3D2C64CD1E99E1330077181C /* Capsule */ = {
@@ -271,7 +270,9 @@
 				3DDEB16E1EBB650900371C33 /* EvolutionItem */,
 				3DDEB1731EBB70A600371C33 /* EvolutionChain */,
 				3D49268C1EE8422B008126BF /* BranchEvolution */,
-				3D2281761EC0A1E600B440DF /* MegaEvolution */,
+				3DEEEE841EF2AD99007924A4 /* ThreeBranchEvolution */,
+				3DEEEE8E1EF56CD1007924A4 /* 5BranchEvolution */,
+				3DEEEE8D1EF56CB9007924A4 /* Eveelution */,
 				3D2281711EBDF79D00B440DF /* Abilities */,
 				3D1F822B1ED0831100F16142 /* BaseStats */,
 				3D2C64CD1E99E1330077181C /* Capsule */,
@@ -317,6 +318,33 @@
 				3DDEB16F1EBB706000371C33 /* EvolutionChain.xib */,
 			);
 			name = EvolutionChain;
+			sourceTree = "<group>";
+		};
+		3DEEEE841EF2AD99007924A4 /* ThreeBranchEvolution */ = {
+			isa = PBXGroup;
+			children = (
+				3DEEEE801EF2AD84007924A4 /* ThreeBranchEvolution.swift */,
+				3DEEEE821EF2AD92007924A4 /* ThreeBranchEvolution.xib */,
+			);
+			name = ThreeBranchEvolution;
+			sourceTree = "<group>";
+		};
+		3DEEEE8D1EF56CB9007924A4 /* Eveelution */ = {
+			isa = PBXGroup;
+			children = (
+				3DEEEE891EF56CAB007924A4 /* Eveelution.swift */,
+				3DEEEE8B1EF56CB3007924A4 /* Eveelution.xib */,
+			);
+			name = Eveelution;
+			sourceTree = "<group>";
+		};
+		3DEEEE8E1EF56CD1007924A4 /* 5BranchEvolution */ = {
+			isa = PBXGroup;
+			children = (
+				3DEEEE871EF56C9E007924A4 /* FiveBranchEvolution.swift */,
+				3DEEEE851EF56C90007924A4 /* FiveBranchEvolution.xib */,
+			);
+			name = 5BranchEvolution;
 			sourceTree = "<group>";
 		};
 		3DFBB2AA1EB0E49100016C66 /* csv */ = {
@@ -415,10 +443,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DEEEE831EF2AD92007924A4 /* ThreeBranchEvolution.xib in Resources */,
 				3D95DF8B1E90E51D008B72EC /* LaunchScreen.storyboard in Resources */,
 				3DDEB16D1EBB647000371C33 /* EvolutionItem.xib in Resources */,
 				3D07454E1EB48F0B0016F3E6 /* pokemon_species.csv in Resources */,
+				3DEEEE8C1EF56CB3007924A4 /* Eveelution.xib in Resources */,
 				3DDEB1701EBB706000371C33 /* EvolutionChain.xib in Resources */,
+				3DEEEE861EF56C90007924A4 /* FiveBranchEvolution.xib in Resources */,
 				3D1F82281ED082F000F16142 /* BaseStats.xib in Resources */,
 				3D4926891EE84204008126BF /* BranchEvolutionChain.xib in Resources */,
 				3D07454C1EB489520016F3E6 /* pokemon_types.csv in Resources */,
@@ -429,7 +460,6 @@
 				3D202FC61EC6022F007450B9 /* pokemon_abilities.csv in Resources */,
 				3D95DF9F1E90EF48008B72EC /* pokemon.xcassets in Resources */,
 				3D95DF881E90E51D008B72EC /* Assets.xcassets in Resources */,
-				3D2281731EC0A1B700B440DF /* MegaEvolution.xib in Resources */,
 				3D202FC81EC61CD2007450B9 /* abilities.csv in Resources */,
 				3D0745561EB4A8930016F3E6 /* pokemon.csv in Resources */,
 				3D4926901EEAE16D008126BF /* pokemon_species_flavor_text.csv in Resources */,
@@ -495,8 +525,9 @@
 				3D0E67141E97E91800C9F07E /* PokedexTableViewCell.swift in Sources */,
 				3D60CB3F1E9A1B8D009C565A /* DataManager.swift in Sources */,
 				3D2281701EBDF78500B440DF /* Abilities.swift in Sources */,
+				3DEEEE8A1EF56CAB007924A4 /* Eveelution.swift in Sources */,
 				3D95DF971E90E708008B72EC /* Constants.swift in Sources */,
-				3D2281751EC0A1E100B440DF /* MegaEvolution.swift in Sources */,
+				3DEEEE811EF2AD84007924A4 /* ThreeBranchEvolution.swift in Sources */,
 				3D22816C1EBCE07600B440DF /* csv.swift in Sources */,
 				3D202FC01EC0C67F007450B9 /* PokemonDetail.swift in Sources */,
 				3DDEB1721EBB707000371C33 /* EvolutionChain.swift in Sources */,
@@ -512,6 +543,7 @@
 				3D49268B1EE84226008126BF /* BranchEvolutionChain.swift in Sources */,
 				3D8DFD2A1ECDE9BF00C89D86 /* PokemonDetailViewController.swift in Sources */,
 				3D290F161EDF19E0003EF897 /* PokemonStats+CoreDataProperties.swift in Sources */,
+				3DEEEE881EF56C9E007924A4 /* FiveBranchEvolution.swift in Sources */,
 				3D60CB411E9A1C0C009C565A /* FileManager+Document.swift in Sources */,
 				3D3CC6B91E9A2BB8000A1AE1 /* Parser.swift in Sources */,
 				3D2C64CA1E99E1110077181C /* Capsule.swift in Sources */,
