@@ -147,6 +147,9 @@ protocol EvolutionChainDelegate : class {
             self.arrow2.image = #imageLiteral(resourceName: "frontback")
             
         }
+        else {
+            self.view.isHidden = true
+        }
 
     }
     

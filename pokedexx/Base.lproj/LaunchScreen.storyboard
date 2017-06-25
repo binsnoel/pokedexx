@@ -20,20 +20,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokedexlogo" translatesAutoresizingMaskIntoConstraints="NO" id="pYI-gj-96K">
-                                <rect key="frame" x="62" y="288" width="250" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="CW1-IX-2xM"/>
-                                    <constraint firstAttribute="width" constant="250" id="m92-yl-Var"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="pYI-gj-96K" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="JCZ-ki-sau"/>
-                            <constraint firstItem="pYI-gj-96K" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="v91-I9-DaH"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -41,7 +28,4 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="pokedexlogo" width="250" height="90"/>
-    </resources>
 </document>

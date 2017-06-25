@@ -26,6 +26,9 @@ class PokedexTableViewController: UITableViewController, NVActivityIndicatorView
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.barTintColor = UIColor.pkPokeRed
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        initializeNavBar()
+        initializeSearchBar()
     }
     
     func initializeNavBar() {

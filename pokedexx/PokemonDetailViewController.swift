@@ -55,11 +55,7 @@ class PokemonDetailViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        let scrollSize = CGSize(width: myView.frame.width,height: myView.frame.height)
-//        scrollView.contentSize = scrollSize
-//        let h = CGFloat(Int32(myView.frame.height) - 159)
-//        self.scrollViewHeight.constant =  CGFloat(h + CGFloat(500))
-        //none
+        print("viewDidAppear")
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,77 +87,53 @@ class PokemonDetailViewController: UIViewController {
             //setup evolution
             let x = currentPokemon.getEvolutionChain(chainID: (deets?.evolution_chain)!)!
             let id = currentPokemon.speciesID
+            
+            let views = self.stackView.arrangedSubviews
+            for viewx in views {
+                self.stackView.removeArrangedSubview(viewx)
+                viewx.isHidden = true
+            }
+            
             if x.count <= 3 {
                 if slowpokeArr.contains(Int(id)) {
                     self.branchEvolutionChain.delegate = self
                     self.branchEvolutionChain.setup(x, current: currentPokemon)
-                    self.threeBranchEvolution.isHidden = true
-                    self.evolutionView.isHidden = true
-                    self.eveelution.isHidden = true
-                    self.stackView.removeArrangedSubview(self.threeBranchEvolution)
-                    self.stackView.removeArrangedSubview(self.evolutionView)
-                    self.stackView.removeArrangedSubview(self.eveelution)
+                    self.branchEvolutionChain.isHidden = false
+                    self.stackView.addArrangedSubview(self.branchEvolutionChain)
                 }
                 else { // normal evolution
                     self.evolutionView.delegate = self
                     self.evolutionView.setup(x, current: currentPokemon)
-                    self.branchEvolutionChain.isHidden = true
-                    self.threeBranchEvolution.isHidden = true
-                    self.stackView.removeArrangedSubview(self.eveelution)
-                    self.stackView.removeArrangedSubview(self.branchEvolutionChain)
-                    self.stackView.removeArrangedSubview(self.threeBranchEvolution)
-                    self.stackView.removeArrangedSubview(self.eveelution)
+                    self.evolutionView.isHidden = false
+                    self.stackView.addArrangedSubview(self.evolutionView)
                 }
-                self.fiveBranchView.isHidden = true
-                self.stackView.removeArrangedSubview(self.fiveBranchView)
             }
             else if x.count == 4 {
                 if gloomArr.contains(Int(id)) {
                     self.branchEvolutionChain.delegate = self
                     self.branchEvolutionChain.setup(x, current: currentPokemon)
-                    self.threeBranchEvolution.isHidden = true
-                    self.stackView.removeArrangedSubview(self.threeBranchEvolution)
+                    self.branchEvolutionChain.isHidden = false
+                    self.stackView.addArrangedSubview(self.branchEvolutionChain)
                 }
                 else if tyrogueArr.contains(Int(id)){
                     self.threeBranchEvolution.delegate = self
                     self.threeBranchEvolution.setup(x, current: currentPokemon)
-                    self.stackView.removeArrangedSubview(self.branchEvolutionChain)
-                    
+                    self.threeBranchEvolution.isHidden = false
+                    self.stackView.addArrangedSubview(self.threeBranchEvolution)
                 }
-                self.stackView.removeArrangedSubview(self.eveelution)
-                self.stackView.removeArrangedSubview(self.evolutionView)
-                self.stackView.removeArrangedSubview(self.eveelution)
-                self.fiveBranchView.isHidden = true
-                self.stackView.removeArrangedSubview(self.fiveBranchView)
-                
             }
             else if x.count == 5 {
-                self.evolutionView.isHidden = true
-                self.branchEvolutionChain.isHidden = true
-                self.threeBranchEvolution.isHidden = true
-                self.stackView.removeArrangedSubview(self.evolutionView)
-                self.eveelution.isHidden = true
-                self.stackView.removeArrangedSubview(self.eveelution)
-                self.stackView.removeArrangedSubview(self.branchEvolutionChain)
-                self.stackView.removeArrangedSubview(self.threeBranchEvolution)
-                
                 self.fiveBranchView.delegate = self
                 self.fiveBranchView.setup(x, current: currentPokemon)
+                self.fiveBranchView.isHidden = false
+                self.stackView.addArrangedSubview(self.fiveBranchView)
             }
             else if x.count > 5 {
-                self.evolutionView.isHidden = true
-                self.branchEvolutionChain.isHidden = true
-                self.threeBranchEvolution.isHidden = true
-                self.stackView.removeArrangedSubview(self.evolutionView)
-                self.stackView.removeArrangedSubview(self.branchEvolutionChain)
-                self.stackView.removeArrangedSubview(self.threeBranchEvolution)
-                self.fiveBranchView.isHidden = true
-                self.stackView.removeArrangedSubview(self.fiveBranchView)
-                
                 self.eveelution.delegate = self
                 self.eveelution.setup(x, current: currentPokemon)
+                self.eveelution.isHidden = false
+                self.stackView.addArrangedSubview(self.eveelution)
             }
-            
             
             self.pokeEntry.text = currentPokemon.getPokeEntry().condensedWhitespace
             if let s = currentPokemon.getPokeStats(){
@@ -171,10 +143,9 @@ class PokemonDetailViewController: UIViewController {
         
         if currentPokemon.switchable == 0 {
             heightReduction += 0
-            self.megaEvolution.isHidden = true
         }
         else{
-            
+
             heightReduction += 200
             
             if currentPokemon.switchable == -1 {
@@ -186,6 +157,8 @@ class PokemonDetailViewController: UIViewController {
                 self.megaEvolution.isHidden = true
             }
             self.megaEvolution.delegate = self
+            self.megaEvolution.isHidden = false
+            self.stackView.addArrangedSubview(self.megaEvolution)
             self.megaEvolution.setupMegaEvolution(currentPokemon.getMegaEvolutionChain()!, currentPokemon)
         }
     }
